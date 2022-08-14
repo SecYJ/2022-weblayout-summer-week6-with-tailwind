@@ -501,6 +501,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .left-12 {
   left: 3rem;
 }
+.right-8 {
+  right: 2rem;
+}
 .top-\[calc\(100\%\+2px\)\] {
   top: calc(100% + 2px);
 }
@@ -544,6 +547,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-12 {
   margin-top: 3rem;
 }
+.mt-14 {
+  margin-top: 3.5rem;
+}
 .block {
   display: block;
 }
@@ -572,8 +578,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-\[100px\] {
   height: 100px;
 }
-.h-full {
-  height: 100%;
+.h-8 {
+  height: 2rem;
 }
 .h-6 {
   height: 1.5rem;
@@ -590,8 +596,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .min-h-\[263px\] {
   min-height: 263px;
 }
-.min-h-\[651px\] {
-  min-height: 651px;
+.min-h-\[582px\] {
+  min-height: 582px;
 }
 .w-\[10px\] {
   width: 10px;
@@ -600,6 +606,15 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+}
+.w-8 {
+  width: 2rem;
+}
+.w-\[100px\] {
+  width: 100px;
+}
+.max-w-\[336px\] {
+  max-width: 336px;
 }
 .grow {
   -webkit-box-flex: 1;
@@ -639,6 +654,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .grid-rows-\[repeat\(2\2c auto\)\2c 1fr\2c auto\2c max-content\] {
   grid-template-rows: repeat(2,auto) 1fr auto -webkit-max-content;
   grid-template-rows: repeat(2,auto) 1fr auto max-content;
+}
+.grid-rows-\[auto\2c max-content\2c 1fr\2c min-content\] {
+  grid-template-rows: auto -webkit-max-content 1fr -webkit-min-content;
+  grid-template-rows: auto max-content 1fr min-content;
 }
 .flex-col {
   -webkit-box-orient: vertical;
@@ -691,6 +710,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
+.justify-self-end {
+  justify-self: end;
+}
 .overflow-hidden {
   overflow: hidden;
 }
@@ -709,6 +731,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 .rounded-full {
   border-radius: 9999px;
 }
+.rounded-tl-lg {
+  border-top-left-radius: 0.5rem;
+}
+.rounded-tr-lg {
+  border-top-right-radius: 0.5rem;
+}
+.rounded-br-lg {
+  border-bottom-right-radius: 0.5rem;
+}
+.rounded-bl-lg {
+  border-bottom-left-radius: 0.5rem;
+}
+.rounded-bl-none {
+  border-bottom-left-radius: 0px;
+}
 .border {
   border-width: 1px;
 }
@@ -717,6 +754,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .border-b {
   border-bottom-width: 1px;
+}
+.border-l {
+  border-left-width: 1px;
+}
+.border-r {
+  border-right-width: 1px;
 }
 .border-white {
   --tw-border-opacity: 1;
@@ -729,6 +772,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-gray-light {
   --tw-border-opacity: 1;
   border-color: rgb(193 193 193 / var(--tw-border-opacity));
+}
+.border-transparent {
+  border-color: transparent;
 }
 .bg-dark-200 {
   --tw-bg-opacity: 1;
@@ -783,6 +829,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-\[url\(\'\.\.\/images\/info04\.jpg\'\)\] {
   background-image: url('../images/info04.jpg');
 }
+.bg-\[url\(\'\.\.\/images\/bg_share\.jpg\'\)\] {
+  background-image: url('../images/bg_share.jpg');
+}
 .bg-cover {
   background-size: cover;
 }
@@ -801,6 +850,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .p-6 {
   padding: 1.5rem;
+}
+.p-8 {
+  padding: 2rem;
 }
 .px-7 {
   padding-left: 1.75rem;
@@ -883,6 +935,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-\[2rem\] {
   font-size: 2rem;
 }
+.text-\[1\.75rem\] {
+  font-size: 1.75rem;
+}
 .text-\[\.75rem\] {
   font-size: .75rem;
 }
@@ -914,6 +969,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-primary {
   --tw-text-opacity: 1;
   color: rgb(98 219 84 / var(--tw-text-opacity));
+}
+.text-\[\#494755\] {
+  --tw-text-opacity: 1;
+  color: rgb(73 71 85 / var(--tw-text-opacity));
 }
 .text-gray-dark {
   --tw-text-opacity: 1;
@@ -947,6 +1006,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   -webkit-transition-duration: 200ms;
        -o-transition-duration: 200ms;
           transition-duration: 200ms;
+}
+.duration-150 {
+  -webkit-transition-duration: 150ms;
+       -o-transition-duration: 150ms;
+          transition-duration: 150ms;
 }
 .duration-700 {
   -webkit-transition-duration: 700ms;
@@ -1090,6 +1154,18 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-top: 3rem;
   }
 
+  .lg\:mt-24 {
+    margin-top: 6rem;
+  }
+
+  .lg\:block {
+    display: block;
+  }
+
+  .lg\:hidden {
+    display: none;
+  }
+
   .lg\:min-h-\[680px\] {
     min-height: 680px;
   }
@@ -1100,6 +1176,17 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:w-1\/2 {
     width: 50%;
+  }
+
+  .lg\:max-w-\[416px\] {
+    max-width: 416px;
+  }
+
+  .lg\:-translate-y-1\/2 {
+    --tw-translate-y: -50%;
+    -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+        -ms-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .lg\:grid-cols-\[max-content\2c 1fr\] {
@@ -1141,6 +1228,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:bg-\[url\(\'\.\.\/images\/bg_home\.jpg\'\)\] {
     background-image: url('../images/bg_home.jpg');
+  }
+
+  .lg\:p-8 {
+    padding: 2rem;
   }
 
   .lg\:py-20 {
@@ -1228,6 +1319,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   .lg\:hover\:bg-dark-200:hover {
     --tw-bg-opacity: 1;
     background-color: rgb(32 32 32 / var(--tw-bg-opacity));
+  }
+
+  .group:hover .lg\:group-hover\:border-primary {
+    --tw-border-opacity: 1;
+    border-color: rgb(98 219 84 / var(--tw-border-opacity));
   }
 
   .group:hover .lg\:group-hover\:text-primary {
