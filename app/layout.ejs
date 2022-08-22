@@ -5,6 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title><%- title %></title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/css/datepicker.min.css"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -23,7 +27,7 @@
             <div class="container">
                 <div class="flex items-center justify-between py-6">
                     <h1 class="">
-                        <a href="#">
+                        <a href="./index.html">
                             <picture>
                                 <source
                                     media="(min-width: 1024px)"
@@ -34,16 +38,27 @@
                                 <img
                                     src="./assets/images/logo.svg"
                                     class="h-6 md:h-[42px]"
-                                    alt=""
+                                    alt="Coding Home"
                                 />
                             </picture>
                         </a>
                     </h1>
 
                     <ul class="hidden gap-12 text-[18px] md:flex">
-                        <li><a href="#">首頁</a></li>
-                        <li><a href="#">課程介紹</a></li>
-                        <li><a href="#">登入</a></li>
+                        <li><a href="./index.html">首頁</a></li>
+                        <li><a href="./course-packages.html">課程介紹</a></li>
+                        <li>
+                            <a
+                                href="#"
+                                id="login"
+                                class="flex items-center gap-1"
+                            >
+                                <span class="material-symbols-outlined">
+                                    account_circle
+                                </span>
+                                登入
+                            </a>
+                        </li>
                     </ul>
 
                     <button type="button" class="md:hidden" id="mobile-nav-btn">
@@ -63,7 +78,11 @@
             >
                 <ul class="space-y-6 py-6 text-center text-[18px] text-white">
                     <li><a href="#" class="block">首頁</a></li>
-                    <li><a href="#" class="block">課程介紹</a></li>
+                    <li>
+                        <a href="./course-packages.html" class="block"
+                            >課程介紹</a
+                        >
+                    </li>
                     <li>
                         <a href="#" class="inline-flex items-center gap-1">
                             <span class="material-symbols-outlined">
@@ -81,13 +100,114 @@
             </div>
         </header>
 
+        <!-- to be continue -->
+        <div class="fixed inset-0 z-50 hidden content-center bg-black/60">
+            <div class="container">
+                <div class="flex justify-center">
+                    <div
+                        class="relative border border-white bg-dark-100 py-10 px-6 md:w-8/12 md:pt-6 md:pb-12 xl:w-1/2"
+                    >
+                        <div class="mx-auto w-full md:max-w-[331px]">
+                            <h2
+                                class="mb-6 text-center text-[1.5rem] font-bold md:mb-8"
+                            >
+                                登入
+                            </h2>
+
+                            <form class="mb-6 space-y-4 md:mb-12 md:space-y-6">
+                                <div class="mb-4 text-gray-light md:mb-8">
+                                    <label
+                                        for="email"
+                                        class="mb-1.5 inline-block"
+                                        >信箱</label
+                                    >
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        id="email"
+                                        class="w-full rounded border border-white bg-dark-300 py-2 px-4 placeholder-gray-light outline-none transition-colors focus:border-primary"
+                                        placeholder="請輸入信箱"
+                                    />
+                                </div>
+                                <div class="text-gray-light">
+                                    <label
+                                        for="password"
+                                        class="mb-1.5 inline-block"
+                                        >密碼</label
+                                    >
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        id="password"
+                                        class="w-full rounded border border-white bg-dark-300 py-2 px-4 placeholder-gray-light outline-none transition-colors focus:border-primary"
+                                        placeholder="請輸入密碼"
+                                    />
+                                </div>
+                                <button
+                                    type="submit"
+                                    class="gradient-97deg w-full rounded-lg py-2"
+                                >
+                                    登入
+                                </button>
+                            </form>
+
+                            <div>
+                                <h3
+                                    class="relative mb-4 text-center before:absolute before:top-1/2 before:left-0 before:h-px before:w-full before:-translate-y-1/2 before:bg-gray-light"
+                                >
+                                    <span
+                                        class="isolate bg-dark-100 px-4 text-gray-light"
+                                        >其他登入方式</span
+                                    >
+                                </h3>
+                                <button
+                                    type="button"
+                                    class="mb-4 flex w-full justify-center gap-8 rounded border border-white py-2 transition-colors hover:border-primary md:mb-6"
+                                >
+                                    <img
+                                        src="./assets/images/icon_fb.svg"
+                                        alt="login with Facebook"
+                                        class="h-6 w-6"
+                                    />
+                                    Facebook 登入
+                                </button>
+                                <button
+                                    type="button"
+                                    class="flex w-full justify-center gap-8 rounded border border-white py-2 transition-colors hover:border-primary"
+                                >
+                                    <img
+                                        src="./assets/images/icon_google.svg"
+                                        alt="login with Google"
+                                        class="h-6 w-6"
+                                    />
+                                    Google 登入
+                                </button>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="absolute top-4 right-6 md:top-[30px]"
+                            >
+                                <span
+                                    class="material-symbols-outlined text-[1.5rem]"
+                                >
+                                    close
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <%- contents %>
 
         <footer
-            class="bg-dark-400 py-4 px-4 text-center text-[.75rem] text-gray-dark lg:py-6 lg:text-[1rem]"
+            class="bg-dark-400 py-4 px-4 text-center text-[.75rem] text-gray-dark xl:py-6 xl:text-[1rem]"
         >
             Coding Home © 2022 All Rights Reserved
         </footer>
+        <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
         <script src="./assets/js/vendors.js"></script>
         <script src="./assets/js/all.js"></script>
     </body>

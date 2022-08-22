@@ -11,7 +11,7 @@ current: index
             class="mx-auto grid min-h-[336px] content-center bg-[url('../images/bg_home_mobile.jpg')] bg-cover bg-center lg:min-h-[680px] lg:bg-[url('../images/bg_home.jpg')]"
         >
             <div
-                class="relative mx-auto border border-white bg-dark-200 px-7 py-8 text-center text-white lg:w-1/2 lg:py-[51px] lg:px-[85px]"
+                class="relative mx-auto border border-white bg-dark-200 px-7 py-8 text-center text-white lg:py-[51px] lg:px-[85px]"
             >
                 <h2 class="text-[1.5rem] leading-[1.4583] lg:text-[3rem]">
                     <span
@@ -220,23 +220,25 @@ current: index
             熱門推薦課程
         </h3>
         <ul
-            class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-4"
+            class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 xl:gap-6"
         >
-            <li class="flex flex-col rounded-3xl bg-dark-100">
+            <li
+                class="flex flex-col rounded-3xl border border-transparent bg-dark-100 transition-colors hover:border-primary"
+            >
                 <div
-                    class="grid grow grid-rows-[repeat(2,auto),1fr,auto,max-content] justify-between p-6"
+                    class="grid grow grid-rows-[repeat(2,auto),1fr,auto,max-content] p-6"
                 >
                     <img
                         src="./assets/images/teacher01.jpg"
                         alt="teacher Belinda"
-                        class="w-[100px mx-auto mb-2 h-[100px] rounded-full"
+                        class="mx-auto mb-2 h-[100px] w-[100px] rounded-full"
                     />
                     <p class="mb-6 text-center">Belinda</p>
                     <h4 class="mb-2 text-[1.25rem] font-bold">
                         基礎前端 - HTML
                     </h4>
 
-                    <small class="text-primary">前端語言</small>
+                    <small class="text-base text-primary">前端語言</small>
                     <p class="mt-2">
                         帶領無基礎的平民老百姓，從最基礎的 HTML
                         語法出發，使用最淺顯易懂的語言與生活隨處可見的例子，輕鬆進入...
@@ -250,7 +252,9 @@ current: index
                     <strong class="text-[2rem]">NT$1600</strong>
                 </div>
             </li>
-            <li class="flex flex-col rounded-3xl bg-dark-100">
+            <li
+                class="flex flex-col rounded-3xl border border-transparent bg-dark-100 transition-colors hover:border-primary"
+            >
                 <div
                     class="grid grow grid-rows-[repeat(2,auto),1fr,auto,max-content] border-b border-gray-light p-6"
                 >
@@ -263,7 +267,7 @@ current: index
                     <h4 class="mb-2 text-[1.25rem] font-bold">
                         2022 Python 全攻略｜從入門到實務
                     </h4>
-                    <small class="text-primary">後端語言</small>
+                    <small class="text-base text-primary">後端語言</small>
                     <p class="mt-2">
                         Python支援多種程式設計範式，包括函數式、指令式、反射式、結構化和物件導向程式設計，它擁有動態型別系...
                     </p>
@@ -273,7 +277,9 @@ current: index
                     <strong class="text-[2rem]">NT$2200</strong>
                 </div>
             </li>
-            <li class="flex flex-col rounded-3xl bg-dark-100">
+            <li
+                class="flex flex-col rounded-3xl border border-transparent bg-dark-100 transition-colors hover:border-primary"
+            >
                 <div
                     class="grid grow grid-rows-[repeat(2,auto),1fr,auto,max-content] border-b border-gray-light p-6"
                 >
@@ -286,7 +292,7 @@ current: index
                     <h4 class="mb-2 text-[1.25rem] font-bold">
                         活用 Line Bot ｜APP 開發到上架完整實戰攻略
                     </h4>
-                    <small class="text-primary">行動應用開發</small>
+                    <small class="text-base text-primary">行動應用開發</small>
                     <p class="mt-2">
                         Line Bot
                         可用於實用的目的，如客戶服務或資訊獲取，有些聊天機器人會搭載自然語言處理系統，但大多簡單的...
@@ -297,7 +303,9 @@ current: index
                     <strong class="text-[2rem]">NT$1800</strong>
                 </div>
             </li>
-            <li class="flex flex-col rounded-3xl bg-dark-100">
+            <li
+                class="flex flex-col rounded-3xl border border-transparent bg-dark-100 transition-colors hover:border-primary"
+            >
                 <div
                     class="grid grow grid-rows-[repeat(2,auto),1fr,auto,max-content] border-b border-gray-light p-6"
                 >
@@ -310,7 +318,9 @@ current: index
                     <h4 class="mb-2 text-[1.25rem] font-bold">
                         Linux 零基礎七天入門｜入門到實務
                     </h4>
-                    <small class="text-primary">作業系統與伺服器</small>
+                    <small class="text-base text-primary"
+                        >作業系統與伺服器</small
+                    >
                     <p class="mt-2">
                         Linux是一種自由和開放原始碼的類UNIX作業系統，作業系統中包含了許多使用者圖形介面和其他實用工具。...
                     </p>
@@ -330,84 +340,89 @@ current: index
     </div>
 </section>
 
-<ul class="grid grid-cols-1 md:grid-cols-2 lg:min-h-[615px] lg:grid-cols-4">
+<ul class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
+    <!-- lg:min-h-[615px]  -->
     <li
-        class="group relative grid min-h-[263px] content-center bg-opacity-50 bg-[url('../images/info01.jpg')] bg-cover bg-center py-10 px-12 before:absolute before:inset-0 before:z-[1] before:bg-black/50 hover:before:bg-transparent"
+        class="group relative grid min-h-[263px] content-center bg-[url('../images/info01.jpg')] bg-cover bg-center py-10 px-12 before:absolute before:inset-0 before:bg-dark-300/90 before:transition-colors xl:min-h-[615px] xl:hover:before:bg-dark-400/[.12]"
     >
-        <div class="relative text-center lg:text-left">
+        <div class="relative text-center xl:text-left">
             <span
-                class="material-symbols-outlined relative z-[5] text-[2rem] text-primary lg:z-auto lg:text-white lg:group-hover:text-primary"
+                class="material-symbols-outlined text-[2rem] text-primary xl:text-white xl:group-hover:text-primary"
             >
-                quiz
+                question_answer
             </span>
             <h4
-                class="title-underline relative z-[5] mt-4 text-[1.5rem] font-bold after:left-1/2 after:-translate-x-1/2 after:bg-primary lg:after:left-0 lg:after:translate-x-0 lg:after:bg-white lg:group-hover:after:bg-primary"
+                class="title-underline relative mt-4 text-[1.5rem] font-bold after:left-1/2 after:-translate-x-1/2 after:bg-primary xl:after:left-0 xl:after:translate-x-0 xl:after:bg-white xl:group-hover:after:bg-primary"
             >
                 對症下藥，專案製作
             </h4>
-            <p class="mt-12 text-[18px]">
-                除了可以瘋狂提問之外 <br />
-                還有機會一起完成專案
+            <p
+                class="mt-12 text-[18px] opacity-80 xl:opacity-50 xl:group-hover:opacity-100"
+            >
+                除了可以瘋狂提問之外<br />還有機會一起完成專案
             </p>
         </div>
     </li>
     <li
-        class="group relative grid min-h-[263px] content-center bg-opacity-50 bg-[url('../images/info02.jpg')] bg-cover bg-center py-10 px-12 before:absolute before:inset-0 before:z-[1] before:bg-black/50 hover:before:bg-transparent"
+        class="group relative grid min-h-[263px] content-center bg-[url('../images/info02.jpg')] bg-cover bg-center py-10 px-12 before:absolute before:inset-0 before:bg-dark-300/90 before:transition-colors xl:min-h-[615px] xl:hover:before:bg-dark-400/[.12]"
     >
-        <div class="relative text-center lg:text-left">
+        <div class="relative text-center xl:text-left">
             <span
-                class="material-symbols-outlined relative z-[5] text-[2rem] text-primary lg:z-auto lg:text-white lg:group-hover:text-primary"
+                class="material-symbols-outlined text-[2rem] text-primary xl:text-white xl:group-hover:text-primary"
             >
                 tips_and_updates
             </span>
             <h4
-                class="title-underline relative z-[5] mt-4 text-[1.5rem] font-bold after:left-1/2 after:-translate-x-1/2 after:bg-primary lg:after:left-0 lg:after:translate-x-0 lg:after:bg-white lg:group-hover:after:bg-primary"
+                class="title-underline relative mt-4 text-[1.5rem] font-bold after:left-1/2 after:-translate-x-1/2 after:bg-primary xl:after:left-0 xl:after:translate-x-0 xl:after:bg-white xl:group-hover:after:bg-primary"
             >
-                對症下藥，專案製作
+                激發你的學習潛力
             </h4>
-            <p class="mt-12 text-[18px]">
-                進度制課程安排&個人化學習建議<br />
-                有效管理你的學習動力
+            <p
+                class="mt-12 text-[18px] opacity-80 xl:opacity-50 xl:group-hover:opacity-100"
+            >
+                進度制課程安排&個人化學習建議<br />有效管理你的學習動力
             </p>
         </div>
     </li>
     <li
-        class="group relative grid min-h-[263px] content-center bg-opacity-50 bg-[url('../images/info03.jpg')] bg-cover bg-center py-10 px-12 before:absolute before:inset-0 before:z-[1] before:bg-black/50 hover:before:bg-transparent"
+        class="group relative grid min-h-[263px] content-center bg-[url('../images/info03.jpg')] bg-cover bg-center py-10 px-12 before:absolute before:inset-0 before:bg-dark-300/90 before:transition-colors xl:min-h-[615px] xl:hover:before:bg-dark-400/[.12]"
     >
-        <div class="relative text-center lg:text-left">
+        <div class="relative text-center xl:text-left">
             <span
-                class="material-symbols-outlined relative z-[5] text-[2rem] text-primary lg:z-auto lg:text-white lg:group-hover:text-primary"
+                class="material-symbols-outlined text-[2rem] text-primary xl:text-white xl:group-hover:text-primary"
             >
                 thumb_up
             </span>
             <h4
-                class="title-underline relative z-[5] mt-4 text-[1.5rem] font-bold after:left-1/2 after:-translate-x-1/2 after:bg-primary lg:after:left-0 lg:after:translate-x-0 lg:after:bg-white lg:group-hover:after:bg-primary"
+                class="title-underline relative mt-4 text-[1.5rem] font-bold after:left-1/2 after:-translate-x-1/2 after:bg-primary xl:after:left-0 xl:after:translate-x-0 xl:after:bg-white xl:group-hover:after:bg-primary"
             >
-                激發你的學習潛力
+                學習效率
             </h4>
-            <p class="mt-12 text-[18px]">
-                針對學員狀況調整內容與步調 <br />
-                學習精準最有效
+            <p
+                class="mt-12 text-[18px] opacity-80 xl:opacity-50 xl:group-hover:opacity-100"
+            >
+                針對學員狀況調整內容與步調<br />學習精準最有效
             </p>
         </div>
     </li>
     <li
-        class="bg-no group relative grid min-h-[263px] content-center bg-opacity-50 bg-[url('../images/info04.jpg')] bg-cover bg-center py-10 px-12 before:absolute before:inset-0 before:z-[1] before:bg-black/50 hover:before:bg-transparent"
+        class="group relative grid min-h-[263px] content-center bg-[url('../images/info04.jpg')] bg-cover bg-center py-10 px-12 before:absolute before:inset-0 before:bg-dark-300/90 before:transition-colors xl:min-h-[615px] xl:hover:before:bg-dark-400/[.12]"
     >
-        <div class="relative text-center lg:text-left">
+        <div class="relative text-center xl:text-left">
             <span
-                class="material-symbols-outlined relative z-[5] text-[2rem] text-primary lg:z-auto lg:text-white lg:group-hover:text-primary"
+                class="material-symbols-outlined text-[2rem] text-primary xl:text-white xl:group-hover:text-primary"
             >
                 supervisor_account
             </span>
             <h4
-                class="title-underline relative z-[5] mt-4 text-[1.5rem] font-bold after:left-1/2 after:-translate-x-1/2 after:bg-primary lg:after:left-0 lg:after:translate-x-0 lg:after:bg-white lg:group-hover:after:bg-primary"
+                class="title-underline relative mt-4 text-[1.5rem] font-bold after:left-1/2 after:-translate-x-1/2 after:bg-primary xl:after:left-0 xl:after:translate-x-0 xl:after:bg-white xl:group-hover:after:bg-primary"
             >
                 一對一指導
             </h4>
-            <p class="mt-12 text-[18px]">
-                針對目的進行客製化課程安排 <br />
-                快速的學以致用
+            <p
+                class="mt-12 text-[18px] opacity-80 xl:opacity-50 xl:group-hover:opacity-100"
+            >
+                針對目的進行客製化課程<br />安排快速的學以致用
             </p>
         </div>
     </li>
@@ -506,7 +521,6 @@ current: index
     </div>
 </section>
 
-<!-- to be continue this section tomorrow -->
 <section class="bg-black py-10 lg:py-20">
     <div class="container">
         <h3
@@ -516,22 +530,55 @@ current: index
             超過 3000 位學員得到了<br class="lg:hidden" />程式超能力
         </h3>
         <div
-            class="bg-centere min-h-[582px] bg-[url('../images/bg_share.jpg')] bg-cover"
+            class="bg-cover bg-center lg:min-h-[582px] lg:grid-cols-none lg:justify-center lg:bg-[url('../images/bg_share.jpg')]"
         >
-            <img src="./assets/images/share.jpg" alt="" />
+            <div
+                class="relative z-[1] flex flex-col gap-14 lg:flex-row lg:justify-center"
+            >
+                <div
+                    class="relative after:absolute after:top-0 after:left-0 after:-z-[1] after:h-full after:w-full after:translate-y-1 after:-translate-x-1 after:rounded-3xl after:border after:border-[#7C7E77] lg:w-max"
+                >
+                    <img
+                        src="./assets/images/share.jpg"
+                        class="rounded-3xl xl:w-[525px]"
+                    />
+                </div>
+                <div
+                    class="rounded-3xl rounded-bl-none bg-white p-8 text-[#494755] lg:absolute lg:-bottom-10 lg:right-0 lg:max-w-[416px]"
+                >
+                    <h4 class="mb-4 text-[18px] font-bold">老師很有耐心</h4>
+                    <p>
+                        老師手把手的細心教學，用手繪圖，以淺顯易懂的方式，讓零網頁基礎的我也能快速了解網頁的架構與原理，學網頁變得有趣多了！
+                    </p>
+                    <img
+                        src="./assets/images/student01.jpg"
+                        alt="Student who satisfied with our service"
+                        class="absolute right-8 top-0 h-20 w-20 -translate-y-1/2 rounded-full lg:h-[100px] lg:w-[100px]"
+                    />
+                </div>
+            </div>
         </div>
+
+        <!-- hire teachers -->
         <div
-            class="relative max-w-[336px] rounded-3xl rounded-bl-none bg-white p-8 text-[#494755] lg:max-w-[416px]"
+            class="mt-20 grid grid-rows-[min-content,max-content,auto] justify-items-center gap-6 rounded-3xl bg-dark-200 px-6 py-10 lg:mx-auto lg:max-w-[966px] lg:grid-cols-[auto,1fr,auto] lg:grid-rows-none lg:items-center lg:justify-items-stretch"
         >
-            <h4 class="mb-4 text-[18px] font-bold">老師很有耐心</h4>
-            <p>
-                老師手把手的細心教學，用手繪圖，以淺顯易懂的方式，讓零網頁基礎的我也能快速了解網頁的架構與原理，學網頁變得有趣多了！
-            </p>
-            <img
-                src="./assets/images/student01.jpg"
-                alt="Student who satisfied with our service"
-                class="absolute right-8 top-0 h-[100px] w-[100px] rounded-full lg:-translate-y-1/2"
-            />
+            <span class="material-symbols-outlined text-[5rem]">
+                menu_book
+            </span>
+            <div
+                class="inline-flex flex-col gap-6 text-center lg:gap-2 lg:text-left"
+            >
+                <h3 class="text-[1.5rem] font-bold lg:text-[1.75rem]">
+                    加入我們成為導師
+                </h3>
+                <p>歡迎各大程式大神加入我們，用知識在世界留下一點影響力。</p>
+            </div>
+            <a
+                href="#"
+                class="hover:gradient-104deg rounded-lg border border-white py-2 px-8 text-[18px]"
+                >立即預約</a
+            >
         </div>
     </div>
 </section>
