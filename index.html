@@ -19,10 +19,15 @@
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+        />
+
         <link rel="stylesheet" href="./assets/style/all.css" />
     </head>
 
-    <body class="bg-dark-300 text-white">
+    <body class="flex min-h-screen flex-col bg-dark-300 text-white">
         <header class="sticky top-0 z-10 bg-dark-100">
             <div class="container">
                 <div class="flex items-center justify-between py-6">
@@ -44,14 +49,26 @@
                         </a>
                     </h1>
 
-                    <ul class="hidden gap-12 text-[18px] md:flex">
-                        <li><a href="./index.html">首頁</a></li>
-                        <li><a href="./course-packages.html">課程介紹</a></li>
+                    <ul class="hidden gap-12 lg:flex">
+                        <li>
+                            <a
+                                href="./index.html"
+                                class="border-b-2 border-transparent transition-colors hover:border-primary"
+                                >首頁</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="./course-packages.html"
+                                class="border-b-2 border-transparent transition-colors hover:border-primary"
+                                >課程介紹</a
+                            >
+                        </li>
                         <li>
                             <a
                                 href="#"
-                                id="login"
-                                class="flex items-center gap-1"
+                                id="login-btn"
+                                class="flex items-center gap-1 border-b-2 border-transparent transition-colors hover:border-primary"
                             >
                                 <span class="material-symbols-outlined">
                                     account_circle
@@ -61,7 +78,7 @@
                         </li>
                     </ul>
 
-                    <button type="button" class="md:hidden" id="mobile-nav-btn">
+                    <button type="button" class="lg:hidden" id="mobile-nav-btn">
                         <span
                             class="material-symbols-outlined block text-[1.5rem] text-primary"
                         >
@@ -73,18 +90,20 @@
 
             <nav
                 id="mobile-menu"
-                class="absolute left-0 top-[calc(100%+2px)] right-0 h-0 overflow-hidden bg-inherit transition-all duration-700"
+                class="absolute left-0 top-full right-0 h-0 overflow-hidden bg-inherit transition-all duration-300"
                 data-collapsed="true"
             >
-                <ul class="space-y-6 py-6 text-center text-[18px] text-white">
-                    <li><a href="#" class="block">首頁</a></li>
+                <ul class="space-y-6 py-6 text-center text-white">
+                    <li><a href="./index.html">首頁</a></li>
                     <li>
-                        <a href="./course-packages.html" class="block"
-                            >課程介紹</a
-                        >
+                        <a href="./course-packages.html">課程介紹</a>
                     </li>
                     <li>
-                        <a href="#" class="inline-flex items-center gap-1">
+                        <a
+                            href="#"
+                            class="inline-flex items-center gap-1"
+                            id="mobile-login-btn"
+                        >
                             <span class="material-symbols-outlined">
                                 account_circle
                             </span>
@@ -100,98 +119,763 @@
             </div>
         </header>
 
-        <!-- to be continue -->
-        <div class="fixed inset-0 z-50 hidden content-center bg-black/60">
+        <div
+            class="fixed inset-0 z-50 hidden content-center bg-black/60"
+            id="backdrop"
+        >
             <div class="container">
-                <div class="flex justify-center">
-                    <div
-                        class="relative border border-white bg-dark-100 py-10 px-6 md:w-8/12 md:pt-6 md:pb-12 xl:w-1/2"
-                    >
-                        <div class="mx-auto w-full md:max-w-[331px]">
-                            <h2
-                                class="mb-6 text-center text-[1.5rem] font-bold md:mb-8"
+                <div
+                    id="modal"
+                    class="relative border border-white bg-dark-100 py-10 px-6 lg:mx-auto lg:w-8/12 lg:pt-6 lg:pb-12"
+                >
+                    <div class="mx-auto lg:max-w-[331px]">
+                        <h2
+                            class="mb-6 text-center text-[1.5rem] font-bold md:mb-8"
+                        >
+                            登入
+                        </h2>
+
+                        <form
+                            class="mb-6 space-y-4 text-gray-light lg:mb-12 lg:space-y-6"
+                        >
+                            <div>
+                                <label for="email" class="mb-1.5 inline-block"
+                                    >信箱</label
+                                >
+                                <input
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    class="w-full rounded border border-white bg-dark-300 py-2 px-4 placeholder-gray-light outline-none transition-colors focus:border-primary"
+                                    placeholder="請輸入信箱"
+                                />
+                            </div>
+                            <div>
+                                <label
+                                    for="password"
+                                    class="mb-1.5 inline-block"
+                                    >密碼</label
+                                >
+                                <input
+                                    type="password"
+                                    name="password"
+                                    id="password"
+                                    class="w-full rounded border border-white bg-dark-300 py-2 px-4 placeholder-gray-light outline-none transition-colors focus:border-primary"
+                                    placeholder="請輸入密碼"
+                                />
+                            </div>
+                            <button
+                                type="submit"
+                                class="gradient-97deg w-full rounded-lg py-2 text-white shadow-lg shadow-transparent transition-shadow hover:shadow-primary"
                             >
                                 登入
-                            </h2>
+                            </button>
+                        </form>
 
-                            <form class="mb-6 space-y-4 md:mb-12 md:space-y-6">
-                                <div class="mb-4 text-gray-light md:mb-8">
-                                    <label
-                                        for="email"
-                                        class="mb-1.5 inline-block"
-                                        >信箱</label
-                                    >
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        id="email"
-                                        class="w-full rounded border border-white bg-dark-300 py-2 px-4 placeholder-gray-light outline-none transition-colors focus:border-primary"
-                                        placeholder="請輸入信箱"
-                                    />
-                                </div>
-                                <div class="text-gray-light">
-                                    <label
-                                        for="password"
-                                        class="mb-1.5 inline-block"
-                                        >密碼</label
-                                    >
-                                    <input
-                                        type="password"
-                                        name="password"
-                                        id="password"
-                                        class="w-full rounded border border-white bg-dark-300 py-2 px-4 placeholder-gray-light outline-none transition-colors focus:border-primary"
-                                        placeholder="請輸入密碼"
-                                    />
-                                </div>
-                                <button
-                                    type="submit"
-                                    class="gradient-97deg w-full rounded-lg py-2"
-                                >
-                                    登入
-                                </button>
-                            </form>
-
-                            <div>
-                                <h3
-                                    class="relative mb-4 text-center before:absolute before:top-1/2 before:left-0 before:h-px before:w-full before:-translate-y-1/2 before:bg-gray-light"
-                                >
-                                    <span
-                                        class="isolate bg-dark-100 px-4 text-gray-light"
-                                        >其他登入方式</span
-                                    >
-                                </h3>
-                                <button
-                                    type="button"
-                                    class="mb-4 flex w-full justify-center gap-8 rounded border border-white py-2 transition-colors hover:border-primary md:mb-6"
-                                >
-                                    <img
-                                        src="./assets/images/icon_fb.svg"
-                                        alt="login with Facebook"
-                                        class="h-6 w-6"
-                                    />
-                                    Facebook 登入
-                                </button>
-                                <button
-                                    type="button"
-                                    class="flex w-full justify-center gap-8 rounded border border-white py-2 transition-colors hover:border-primary"
-                                >
-                                    <img
-                                        src="./assets/images/icon_google.svg"
-                                        alt="login with Google"
-                                        class="h-6 w-6"
-                                    />
-                                    Google 登入
-                                </button>
-                            </div>
-
-                            <button
-                                type="button"
-                                class="absolute top-4 right-6 md:top-[30px]"
+                        <div>
+                            <h3
+                                class="relative mb-4 text-center before:absolute before:top-1/2 before:left-0 before:h-px before:w-full before:-translate-y-1/2 before:bg-gray-light"
                             >
                                 <span
-                                    class="material-symbols-outlined text-[1.5rem]"
+                                    class="isolate bg-dark-100 px-4 text-gray-light"
+                                    >其他登入方式</span
                                 >
-                                    close
+                            </h3>
+                            <button
+                                type="button"
+                                class="mb-4 flex w-full justify-center gap-8 rounded border border-white py-2 transition-colors hover:border-primary lg:mb-6"
+                            >
+                                <img
+                                    src="./assets/images/icon_fb.svg"
+                                    alt="login with Facebook"
+                                    class="h-6 w-6"
+                                />
+                                Facebook 登入
+                            </button>
+                            <button
+                                type="button"
+                                class="flex w-full justify-center gap-8 rounded border border-white py-2 transition-colors hover:border-primary"
+                            >
+                                <img
+                                    src="./assets/images/icon_google.svg"
+                                    alt="login with Google"
+                                    class="h-6 w-6"
+                                />
+                                Google 登入
+                            </button>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="absolute top-4 right-6 lg:top-[30px]"
+                            id="modal-close-btn"
+                        >
+                            <span
+                                class="material-symbols-outlined text-[1.5rem]"
+                            >
+                                close
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+<main>
+    <section class="pt-[18px] pb-7 lg:py-20">
+        <div class="container">
+            <div
+                class="grid min-h-[336px] place-content-center content-center bg-[url('../images/bg_home_mobile.jpg')] bg-cover bg-center lg:min-h-[680px] lg:bg-[url('../images/bg_home.jpg')]"
+            >
+                <div
+                    class="relative border border-white bg-dark-200 px-7 py-8 text-center text-white lg:py-[51px] lg:px-[85px]"
+                >
+                    <h2 class="text-[1.5rem] lg:text-[3rem]">
+                        <span
+                            class="gradient-180deg block bg-clip-text text-transparent"
+                        >
+                            全台最豐富的程式家教
+                        </span>
+                        <span> 在實踐中化理想為現實 </span>
+                    </h2>
+                    <p class="text-[14px] lg:mt-6 lg:text-[18px]">
+                        全台最專業師資｜到府程式家教｜客製化課程
+                    </p>
+
+                    <div
+                        class="absolute top-0 left-0 h-[10px] w-[10px] -translate-x-1/2 -translate-y-1/2 bg-white"
+                    ></div>
+                    <div
+                        class="absolute top-0 right-0 h-[10px] w-[10px] -translate-y-1/2 translate-x-1/2 bg-white"
+                    ></div>
+                    <div
+                        class="absolute right-0 bottom-0 h-[10px] w-[10px] translate-x-1/2 translate-y-1/2 bg-white"
+                    ></div>
+                    <div
+                        class="absolute bottom-0 left-0 h-[10px] w-[10px] -translate-x-1/2 translate-y-1/2 bg-white"
+                    ></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-dark-100 py-10 lg:py-20">
+        <div class="container">
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+                <h3
+                    class="mx-auto mb-4 w-fit text-center text-[1.5rem] font-bold md:mb-0 md:self-center xl:mx-0 xl:text-left xl:text-[1.75rem]"
+                >
+                    手把手帶你<br />親自到家教到會
+                    <span
+                        class="mx-auto mt-4 block h-[3px] w-[50px] bg-primary xl:mx-0"
+                    ></span>
+                </h3>
+                <div
+                    class="group rounded-xl border border-dark-200 bg-dark-200 py-12 px-6 text-center transition-colors duration-200 xl:border-transparent xl:bg-transparent xl:text-[#969696] xl:hover:border-primary xl:hover:bg-dark-200 xl:hover:text-white"
+                >
+                    <span
+                        class="material-symbols-outlined gradient-180deg mb-6 bg-clip-text text-[50px] text-transparent xl:text-[#969696] xl:group-hover:text-transparent"
+                    >
+                        code
+                    </span>
+                    <h4 class="mb-4 font-bold">超過 100 種專業課程</h4>
+                    <p>
+                        學習標準化的電腦形式語言 <br />
+                        培養運算思維和邏輯素養
+                    </p>
+                </div>
+                <div
+                    class="group rounded-xl border border-dark-200 bg-dark-200 py-12 px-6 text-center transition-colors duration-200 xl:border-transparent xl:bg-transparent xl:text-[#969696] xl:hover:border-primary xl:hover:bg-dark-200 xl:hover:text-white"
+                >
+                    <span
+                        class="material-symbols-outlined gradient-180deg mb-6 bg-clip-text text-[50px] text-transparent xl:text-[#969696] xl:group-hover:text-transparent"
+                    >
+                        rocket_launch
+                    </span>
+                    <h4 class="mb-4 font-bold">高效學習</h4>
+                    <p>
+                        客製化專屬課表 <br />
+                        讓學習變簡單
+                    </p>
+                </div>
+                <div
+                    class="group rounded-xl border border-dark-200 bg-dark-200 py-12 px-6 text-center transition-colors duration-200 xl:border-transparent xl:bg-transparent xl:text-[#969696] xl:hover:border-primary xl:hover:bg-dark-200 xl:hover:text-white"
+                >
+                    <span
+                        class="material-symbols-outlined gradient-180deg mb-6 bg-clip-text text-[50px] text-transparent xl:text-[#969696] xl:group-hover:text-transparent"
+                    >
+                        location_on
+                    </span>
+                    <h4 class="mb-4 font-bold">指定地點</h4>
+                    <p>
+                        專業老師到你指定的地點 <br />
+                        一對一高效學習
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-10 lg:py-20">
+        <div class="container">
+            <h3 class="text-center xl:text-[1.75rem]">
+                預期上課流程
+                <span
+                    class="mx-auto mt-4 block h-[3px] w-[50px] bg-primary"
+                ></span>
+            </h3>
+            <ul
+                class="mt-[66px] grid grid-cols-1 gap-[50px] md:grid-cols-2 xl:grid-cols-4 xl:gap-6"
+            >
+                <li class="relative rounded-xl border border-white p-12">
+                    <span
+                        class="absolute top-0 left-12 -translate-y-1/2 bg-dark-300 px-2 text-[3rem] font-bold leading-tight text-primary"
+                        >01</span
+                    >
+                    <h4 class="mb-4 text-[1.5rem] font-bold">預約</h4>
+                    <p>
+                        線上預約指定課程與老師 <br />
+                        由老師安排專屬課程
+                    </p>
+                </li>
+                <li class="relative rounded-xl border border-white p-12">
+                    <span
+                        class="absolute top-0 left-12 -translate-y-1/2 bg-dark-300 px-2 text-[3rem] font-bold leading-tight text-primary"
+                        >02</span
+                    >
+                    <h4 class="mb-4 text-[1.5rem] font-bold">付款</h4>
+                    <p>
+                        支援各種支付方式 <br />
+                        提供12期分期付款
+                    </p>
+                </li>
+                <li class="relative rounded-xl border border-white p-12">
+                    <span
+                        class="absolute top-0 left-12 -translate-y-1/2 bg-dark-300 px-2 text-[3rem] font-bold leading-tight text-primary"
+                        >03</span
+                    >
+                    <h4 class="mb-4 text-[1.5rem] font-bold">上課</h4>
+                    <p>
+                        地點由您指定 <br />
+                        密集性一對一教學
+                    </p>
+                </li>
+                <li class="relative rounded-xl border border-white p-12">
+                    <span
+                        class="absolute top-0 left-12 -translate-y-1/2 bg-dark-300 px-2 text-[3rem] font-bold leading-tight text-primary"
+                        >04</span
+                    >
+                    <h4 class="mb-4 text-[1.5rem] font-bold">提供滿意度</h4>
+                    <p>
+                        提供課程滿意度及回饋 <br />
+                        讓我們持續成長與進步
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="bg-dark-100 py-10">
+        <h3 class="text-center text-[1.5rem] lg:text-[1.75rem]">
+            <span>你想要學習的程式，</span>
+            <span class="block md:inline-block">都在這裡</span>
+            <span class="mx-auto mt-4 h-[3px] w-[50px] bg-primary"></span>
+        </h3>
+        <ul
+            class="mt-[26px] flex gap-2 overflow-x-auto px-6 [scrollbar-width:thin] lg:mt-12 lg:justify-center"
+        >
+            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
+                JavaScript
+            </li>
+            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
+                HTML/CSS
+            </li>
+            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
+                SQL
+            </li>
+            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
+                Java
+            </li>
+            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
+                SQL
+            </li>
+            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
+                Bash/Shell
+            </li>
+            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
+                Python
+            </li>
+            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
+                Python
+            </li>
+            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
+                PHP
+            </li>
+            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
+                C++
+            </li>
+            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
+                11
+            </li>
+            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
+                12
+            </li>
+        </ul>
+    </section>
+
+    <section class="bg-black py-10 lg:py-20">
+        <div class="container">
+            <h3
+                class="mb-6 text-center text-[1.5rem] font-bold lg:mb-12 lg:text-[1.75rem]"
+            >
+                熱門推薦課程
+                <span
+                    class="mx-auto mt-4 block h-[3px] w-[50px] bg-primary"
+                ></span>
+            </h3>
+            <ul
+                class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 xl:gap-6"
+            >
+                <li
+                    class="flex flex-col rounded-3xl border border-transparent bg-dark-100 transition-colors hover:border-primary"
+                >
+                    <div
+                        class="grid grow grid-rows-[repeat(2,auto),1fr,auto,max-content] p-6"
+                    >
+                        <img
+                            src="./assets/images/teacher01.jpg"
+                            alt="teacher Belinda"
+                            class="mx-auto mb-2 h-[100px] w-[100px] rounded-full"
+                        />
+                        <p class="mb-6 text-center">Belinda</p>
+                        <h4 class="mb-2 text-[1.25rem] font-bold">
+                            基礎前端 - HTML
+                        </h4>
+
+                        <small class="text-base text-primary">前端語言</small>
+                        <p class="mt-2">
+                            帶領無基礎的平民老百姓，從最基礎的 HTML
+                            語法出發，使用最淺顯易懂的語言與生活隨處可見的例子，輕鬆進入...
+                        </p>
+                    </div>
+
+                    <div
+                        class="flex items-center justify-center gap-2 border-t border-gray-light py-4"
+                    >
+                        <span>50分鐘</span>
+                        <strong class="text-[2rem]">NT$1600</strong>
+                    </div>
+                </li>
+                <li
+                    class="flex flex-col rounded-3xl border border-transparent bg-dark-100 transition-colors hover:border-primary"
+                >
+                    <div
+                        class="grid grow grid-rows-[repeat(2,auto),1fr,auto,max-content] border-b border-gray-light p-6"
+                    >
+                        <img
+                            src="./assets/images/teacher02.jpg"
+                            alt="teacher Guava"
+                            class="w-[100px mx-auto mb-2 h-[100px] rounded-full"
+                        />
+                        <p class="mb-6 text-center">Guava</p>
+                        <h4 class="mb-2 text-[1.25rem] font-bold">
+                            2022 Python 全攻略｜從入門到實務
+                        </h4>
+                        <small class="text-base text-primary">後端語言</small>
+                        <p class="mt-2">
+                            Python支援多種程式設計範式，包括函數式、指令式、反射式、結構化和物件導向程式設計，它擁有動態型別系...
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 py-4">
+                        <span>50分鐘</span>
+                        <strong class="text-[2rem]">NT$2200</strong>
+                    </div>
+                </li>
+                <li
+                    class="flex flex-col rounded-3xl border border-transparent bg-dark-100 transition-colors hover:border-primary"
+                >
+                    <div
+                        class="grid grow grid-rows-[repeat(2,auto),1fr,auto,max-content] border-b border-gray-light p-6"
+                    >
+                        <img
+                            src="./assets/images/teacher03.jpg"
+                            alt="teacher Joe"
+                            class="mx-auto mb-2 h-[100px] w-[100px] rounded-full"
+                        />
+                        <p class="mb-6 text-center">Joe</p>
+                        <h4 class="mb-2 text-[1.25rem] font-bold">
+                            活用 Line Bot ｜APP 開發到上架完整實戰攻略
+                        </h4>
+                        <small class="text-base text-primary"
+                            >行動應用開發</small
+                        >
+                        <p class="mt-2">
+                            Line Bot
+                            可用於實用的目的，如客戶服務或資訊獲取，有些聊天機器人會搭載自然語言處理系統，但大多簡單的...
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 py-4">
+                        <span>50分鐘</span>
+                        <strong class="text-[2rem]">NT$1800</strong>
+                    </div>
+                </li>
+                <li
+                    class="flex flex-col rounded-3xl border border-transparent bg-dark-100 transition-colors hover:border-primary"
+                >
+                    <div
+                        class="grid grow grid-rows-[repeat(2,auto),1fr,auto,max-content] border-b border-gray-light p-6"
+                    >
+                        <img
+                            src="./assets/images/teacher04.jpg"
+                            alt="teacher Lina"
+                            class="mx-auto mb-2 h-[100px] w-[100px] rounded-full"
+                        />
+                        <p class="mb-6 text-center">Lina</p>
+                        <h4 class="mb-2 text-[1.25rem] font-bold">
+                            Linux 零基礎七天入門｜入門到實務
+                        </h4>
+                        <small class="text-base text-primary"
+                            >作業系統與伺服器</small
+                        >
+                        <p class="mt-2">
+                            Linux是一種自由和開放原始碼的類UNIX作業系統，作業系統中包含了許多使用者圖形介面和其他實用工具。...
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 py-4">
+                        <span>50分鐘</span>
+                        <strong class="text-[2rem]">NT$1100</strong>
+                    </div>
+                </li>
+            </ul>
+
+            <a
+                href="./course-packages.html"
+                class="gradient-104deg mx-auto mt-6 block w-fit rounded-lg px-8 py-2 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-primary lg:mt-12"
+                >所有課程列表</a
+            >
+        </div>
+    </section>
+
+    <ul class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
+        <li
+            class="group relative grid min-h-[263px] content-center bg-[url('../images/info01.jpg')] bg-cover bg-center py-10 px-12 before:absolute before:inset-0 before:bg-dark-300/90 before:transition-colors xl:min-h-[615px] xl:hover:before:bg-dark-400/[.12]"
+        >
+            <div class="z-[1] text-center xl:text-left">
+                <span
+                    class="material-symbols-outlined text-[2rem] text-primary xl:text-[#8d8d8d] xl:group-hover:text-primary"
+                >
+                    question_answer
+                </span>
+                <h4
+                    class="mt-4 text-[1.5rem] font-bold xl:group-hover:after:bg-primary"
+                >
+                    對症下藥，專案製作
+                    <span
+                        class="mx-auto mt-4 block h-[3px] w-[50px] bg-primary xl:mx-0 xl:bg-white xl:group-hover:bg-primary"
+                    ></span>
+                </h4>
+                <p
+                    class="mt-12 opacity-80 xl:opacity-50 xl:group-hover:opacity-100"
+                >
+                    除了可以瘋狂提問之外<br />還有機會一起完成專案
+                </p>
+            </div>
+        </li>
+        <li
+            class="group relative grid min-h-[263px] content-center bg-[url('../images/info02.jpg')] bg-cover bg-center py-10 px-12 before:absolute before:inset-0 before:bg-dark-300/90 before:transition-colors xl:min-h-[615px] xl:hover:before:bg-dark-400/[.12]"
+        >
+            <div class="z-[1] text-center xl:text-left">
+                <span
+                    class="material-symbols-outlined text-[2rem] text-primary xl:text-[#8d8d8d] xl:group-hover:text-primary"
+                >
+                    tips_and_updates
+                </span>
+                <h4 class="mt-4 text-[1.5rem] font-bold">
+                    激發你的學習潛力
+                    <span
+                        class="mx-auto mt-4 block h-[3px] w-[50px] bg-primary xl:mx-0 xl:bg-white xl:hover:bg-primary"
+                    ></span>
+                </h4>
+                <p
+                    class="mt-12 opacity-80 xl:opacity-50 xl:group-hover:opacity-100"
+                >
+                    進度制課程安排&個人化學習建議<br />有效管理你的學習動力
+                </p>
+            </div>
+        </li>
+        <li
+            class="group relative grid min-h-[263px] content-center bg-[url('../images/info03.jpg')] bg-cover bg-center py-10 px-12 before:absolute before:inset-0 before:bg-dark-300/90 before:transition-colors xl:min-h-[615px] xl:hover:before:bg-dark-400/[.12]"
+        >
+            <div class="z-[1] text-center xl:text-left">
+                <span
+                    class="material-symbols-outlined text-[2rem] text-primary xl:text-[#8d8d8d] xl:group-hover:text-primary"
+                >
+                    thumb_up
+                </span>
+                <h4
+                    class="mt-4 text-[1.5rem] font-bold xl:group-hover:after:bg-primary"
+                >
+                    學習效率
+                    <span
+                        class="mx-auto mt-4 block h-[3px] w-[50px] bg-primary xl:mx-0 xl:bg-white xl:group-hover:bg-primary"
+                    ></span>
+                </h4>
+                <p
+                    class="mt-12 opacity-80 xl:opacity-50 xl:group-hover:opacity-100"
+                >
+                    針對學員狀況調整內容與步調<br />學習精準最有效
+                </p>
+            </div>
+        </li>
+        <li
+            class="group relative grid min-h-[263px] content-center bg-[url('../images/info04.jpg')] bg-cover bg-center py-10 px-12 before:absolute before:inset-0 before:bg-dark-300/90 before:transition-colors xl:min-h-[615px] xl:hover:before:bg-dark-400/[.12]"
+        >
+            <div class="z-[1] text-center xl:text-left">
+                <span
+                    class="material-symbols-outlined text-[2rem] text-primary xl:text-[#8d8d8d] xl:group-hover:text-primary"
+                >
+                    supervisor_account
+                </span>
+                <h4
+                    class="mt-4 text-[1.5rem] font-bold xl:group-hover:after:bg-primary"
+                >
+                    一對一指導
+                    <span
+                        class="mx-auto mt-4 block h-[3px] w-[50px] bg-primary xl:mx-0 xl:bg-white xl:group-hover:bg-primary"
+                    ></span>
+                </h4>
+                <p
+                    class="mt-12 opacity-80 xl:opacity-50 xl:group-hover:opacity-100"
+                >
+                    針對目的進行客製化課程<br />安排快速的學以致用
+                </p>
+            </div>
+        </li>
+    </ul>
+
+    <section class="py-10 lg:py-20">
+        <div class="container">
+            <h3 class="text-center text-[1.5rem] lg:text-[1.75rem]">
+                文章分享
+                <span
+                    class="mx-auto mt-4 block h-[3px] w-[50px] bg-primary"
+                ></span>
+            </h3>
+            <ul class="mt-10 grid gap-6 lg:mt-12 lg:grid-flow-col">
+                <li class="group relative lg:p-8">
+                    <div
+                        class="absolute top-0 left-0 hidden h-8 w-8 rounded-tl-lg border-t border-l border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
+                    ></div>
+                    <div
+                        class="absolute top-0 right-0 hidden h-8 w-8 rounded-tr-lg border-r border-t border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
+                    ></div>
+                    <div
+                        class="absolute bottom-0 right-0 hidden h-8 w-8 rounded-br-lg border-b border-r border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
+                    ></div>
+                    <div
+                        class="absolute left-0 bottom-0 hidden h-8 w-8 rounded-bl-lg border-l border-b border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
+                    ></div>
+                    <img
+                        src="./assets/images/article01.jpg"
+                        alt="2022 前端開發者學習地圖"
+                        class="w-full"
+                    />
+                    <h4 class="my-4 font-bold">2022 前端開發者學習地圖</h4>
+                    <p>
+                        轉職為前端的這條職業路上該如何發展？本篇為前端開發者提供學習地圖參考
+                    </p>
+                    <a href="#" class="mt-4 block text-right text-primary">
+                        MORE
+                    </a>
+                </li>
+                <li class="group relative lg:p-8">
+                    <div
+                        class="absolute top-0 left-0 hidden h-8 w-8 rounded-tl-lg border-t border-l border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
+                    ></div>
+                    <div
+                        class="absolute top-0 right-0 hidden h-8 w-8 rounded-tr-lg border-r border-t border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
+                    ></div>
+                    <div
+                        class="absolute bottom-0 right-0 hidden h-8 w-8 rounded-br-lg border-b border-r border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
+                    ></div>
+                    <div
+                        class="absolute left-0 bottom-0 hidden h-8 w-8 rounded-bl-lg border-l border-b border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
+                    ></div>
+                    <img
+                        src="./assets/images/article02.jpg"
+                        alt="軟體工程師有哪些類別免費"
+                        class="w-full"
+                    />
+                    <h4 class="my-4 font-bold">軟體工程師有哪些類別免費</h4>
+                    <p>
+                        軟體工程師領域廣闊，許多人仍然對此相關職務感到陌生，本篇就介紹主流的軟體工程師職務
+                    </p>
+                    <a href="#" class="mt-4 block text-right text-primary">
+                        MORE
+                    </a>
+                </li>
+                <li class="group relative lg:p-8">
+                    <div
+                        class="absolute top-0 left-0 hidden h-8 w-8 rounded-tl-lg border-t border-l border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
+                    ></div>
+                    <div
+                        class="absolute top-0 right-0 hidden h-8 w-8 rounded-tr-lg border-r border-t border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
+                    ></div>
+                    <div
+                        class="absolute bottom-0 right-0 hidden h-8 w-8 rounded-br-lg border-b border-r border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
+                    ></div>
+                    <div
+                        class="absolute left-0 bottom-0 hidden h-8 w-8 rounded-bl-lg border-l border-b border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
+                    ></div>
+                    <img
+                        src="./assets/images/article03.jpg"
+                        alt="25 小時前端教學資源"
+                        class="w-full"
+                    />
+                    <h4 class="my-4 font-bold">25 小時前端教學資源</h4>
+                    <p>
+                        這篇文章規劃了適合「前端工程師」的學習地圖，讓新進的學生了解如何選擇課程
+                    </p>
+                    <a href="#" class="mt-4 block text-right text-primary">
+                        MORE
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section
+        class="bg-black bg-no-repeat py-10 lg:bg-[url('../images/bg_share.jpg')] lg:bg-contain lg:bg-center lg:py-20"
+    >
+        <div class="container">
+            <h3 class="text-center text-[1.5rem] font-bold lg:text-[1.75rem]">
+                專屬你的學習課程<br />
+                超過 3000 位學員得到了<br class="lg:hidden" />程式超能力
+            </h3>
+            <div class="mt-6 lg:mt-12 lg:flex lg:justify-center">
+                <div class="lg:w-8/12">
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div
+                                    class="relative mb-11 h-full max-h-[213px] after:absolute after:top-0 after:left-0 after:h-full after:w-full after:translate-y-4 after:rounded-3xl after:border after:border-[#7C7E77] lg:mb-0 lg:h-[calc(100%-3rem)] lg:max-h-[none] lg:w-[62%]"
+                                >
+                                    <img
+                                        src="./assets/images/share.jpg"
+                                        class="relative top-2 left-2 z-[1] h-full w-full rounded-3xl object-cover"
+                                    />
+                                </div>
+                                <div
+                                    class="relative z-[1] rounded-3xl rounded-bl-none bg-white p-8 text-[#494755] lg:absolute lg:bottom-0 lg:right-0 lg:w-[45%]"
+                                >
+                                    <h4 class="mb-2 font-bold lg:mb-4">
+                                        老師很有耐心
+                                    </h4>
+                                    <p>
+                                        老師手把手的細心教學，用手繪圖，以淺顯易懂的方式，讓零網頁基礎的我也能快速了解網頁的架構與原理，學網頁變得有趣多了！
+                                    </p>
+                                    <img
+                                        src="./assets/images/student01.jpg"
+                                        alt="Student who satisfied with our service"
+                                        class="absolute right-8 top-0 h-20 w-20 -translate-y-1/4 rounded-full lg:mt-0 lg:h-[100px] lg:w-[100px]"
+                                    />
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div
+                                    class="relative mb-11 h-full max-h-[213px] after:absolute after:top-0 after:left-0 after:h-full after:w-full after:translate-y-4 after:rounded-3xl after:border after:border-[#7C7E77] lg:mb-0 lg:h-[calc(100%-3rem)] lg:max-h-[none] lg:w-[62%]"
+                                >
+                                    <img
+                                        src="./assets/images/share-2.jpg"
+                                        class="relative top-2 left-2 z-[1] h-full w-full rounded-3xl object-cover"
+                                    />
+                                </div>
+                                <div
+                                    class="relative z-[1] rounded-3xl rounded-bl-none bg-white p-8 text-[#494755] lg:absolute lg:bottom-0 lg:right-0 lg:w-[45%]"
+                                >
+                                    <h4 class="mb-2 font-bold lg:mb-4">
+                                        老師很有耐心
+                                    </h4>
+                                    <p>
+                                        老師手把手的細心教學，用手繪圖，以淺顯易懂的方式，讓零網頁基礎的我也能快速了解網頁的架構與原理，學網頁變得有趣多了！
+                                    </p>
+                                    <img
+                                        src="./assets/images/student02.jpg"
+                                        alt="Student who satisfied with our service"
+                                        class="absolute right-8 top-0 h-20 w-20 -translate-y-1/4 rounded-full lg:mt-0 lg:h-[100px] lg:w-[100px]"
+                                    />
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div
+                                    class="relative mb-11 h-full max-h-[213px] after:absolute after:top-0 after:left-0 after:h-full after:w-full after:translate-y-4 after:rounded-3xl after:border after:border-[#7C7E77] lg:mb-0 lg:h-[calc(100%-3rem)] lg:max-h-[none] lg:w-[62%]"
+                                >
+                                    <img
+                                        src="./assets/images/share-3.jpg"
+                                        class="relative top-2 left-2 z-[1] h-full w-full rounded-3xl object-cover"
+                                    />
+                                </div>
+                                <div
+                                    class="relative z-[1] rounded-3xl rounded-bl-none bg-white p-8 text-[#494755] lg:absolute lg:bottom-0 lg:right-0 lg:w-[45%]"
+                                >
+                                    <h4 class="mb-2 font-bold lg:mb-4">
+                                        老師很有耐心
+                                    </h4>
+                                    <p>
+                                        老師手把手的細心教學，用手繪圖，以淺顯易懂的方式，讓零網頁基礎的我也能快速了解網頁的架構與原理，學網頁變得有趣多了！
+                                    </p>
+                                    <img
+                                        src="./assets/images/student03.jpg"
+                                        alt="Student who satisfied with our service"
+                                        class="absolute right-8 top-0 h-20 w-20 -translate-y-1/4 rounded-full lg:mt-0 lg:h-[100px] lg:w-[100px]"
+                                    />
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div
+                                    class="relative mb-11 h-full max-h-[213px] after:absolute after:top-0 after:left-0 after:h-full after:w-full after:translate-y-4 after:rounded-3xl after:border after:border-[#7C7E77] lg:mb-0 lg:h-[calc(100%-3rem)] lg:max-h-[none] lg:w-[62%]"
+                                >
+                                    <img
+                                        src="./assets/images/share-4.jpg"
+                                        class="relative top-2 left-2 z-[1] h-full w-full rounded-3xl object-cover"
+                                    />
+                                </div>
+                                <div
+                                    class="relative z-[1] rounded-3xl rounded-bl-none bg-white p-8 text-[#494755] lg:absolute lg:bottom-0 lg:right-0 lg:w-[45%]"
+                                >
+                                    <h4 class="mb-2 font-bold lg:mb-4">
+                                        老師很有耐心
+                                    </h4>
+                                    <p>
+                                        老師手把手的細心教學，用手繪圖，以淺顯易懂的方式，讓零網頁基礎的我也能快速了解網頁的架構與原理，學網頁變得有趣多了！
+                                    </p>
+                                    <img
+                                        src="./assets/images/student04.jpg"
+                                        alt="Student who satisfied with our service"
+                                        class="absolute right-8 top-0 h-20 w-20 -translate-y-1/4 rounded-full lg:mt-0 lg:h-[100px] lg:w-[100px]"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- for button groups -->
+                        <div
+                            class="static bottom-0 left-1/4 z-10 mt-8 flex justify-center gap-4 lg:absolute lg:-translate-x-1/4"
+                        >
+                            <button class="carousel-prev-btn" type="button">
+                                <span
+                                    class="material-symbols-outlined block text-[1.5rem] text-primary"
+                                >
+                                    west
+                                </span>
+                            </button>
+                            <ul class="swiper-pagination"></ul>
+                            <button class="carousel-next-btn" type="button">
+                                <span
+                                    class="material-symbols-outlined block text-[1.5rem] text-primary"
+                                >
+                                    east
                                 </span>
                             </button>
                         </div>
@@ -199,592 +883,43 @@
                 </div>
             </div>
         </div>
+    </section>
 
-        
-<section class="pt-[18px] pb-7 lg:py-20">
-    <div class="container">
-        <div
-            class="mx-auto grid min-h-[336px] content-center bg-[url('../images/bg_home_mobile.jpg')] bg-cover bg-center lg:min-h-[680px] lg:bg-[url('../images/bg_home.jpg')]"
-        >
+    <section class="bg-black py-10 lg:py-20">
+        <div class="container">
             <div
-                class="relative mx-auto border border-white bg-dark-200 px-7 py-8 text-center text-white lg:py-[51px] lg:px-[85px]"
+                class="grid justify-items-center gap-6 rounded-3xl bg-dark-200 px-6 py-10 lg:mx-auto lg:max-w-[966px] lg:grid-cols-[auto,1fr,auto] lg:items-center lg:justify-items-stretch"
             >
-                <h2 class="text-[1.5rem] leading-[1.4583] lg:text-[3rem]">
-                    <span
-                        class="gradient-180deg block bg-clip-text text-transparent"
-                    >
-                        全台最豐富的程式家教
-                    </span>
-                    <span> 在實踐中化理想為現實 </span>
-                </h2>
-                <p
-                    class="mt-6 text-[14px] leading-[1.4285] lg:text-[18px] lg:leading-[1.44]"
+                <span class="material-symbols-outlined text-[5rem]">
+                    menu_book
+                </span>
+                <div
+                    class="inline-flex flex-col gap-6 text-center lg:gap-2 lg:text-left"
                 >
-                    全台最專業師資｜到府程式家教｜客製化課程
-                </p>
-
-                <!-- dots round the corner -->
-                <div
-                    class="absolute top-0 left-0 h-[10px] w-[10px] -translate-x-1/2 -translate-y-1/2 bg-white"
-                ></div>
-                <div
-                    class="absolute top-0 right-0 h-[10px] w-[10px] -translate-y-1/2 translate-x-1/2 bg-white"
-                ></div>
-                <div
-                    class="absolute right-0 bottom-0 h-[10px] w-[10px] translate-x-1/2 translate-y-1/2 bg-white"
-                ></div>
-                <div
-                    class="absolute bottom-0 left-0 h-[10px] w-[10px] -translate-x-1/2 translate-y-1/2 bg-white"
-                ></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="bg-dark-100 py-10 lg:py-20">
-    <div class="container">
-        <div
-            class="grid grid-cols-1 gap-10 lg:grid-cols-[max-content,1fr] lg:items-center"
-        >
-            <h3
-                class="title-underline relative mx-auto w-fit text-center text-[1.5rem] font-bold leading-[1.4583] after:left-1/2 after:-translate-x-1/2 after:bg-primary lg:text-[1.75rem] lg:leading-[1.42]"
-            >
-                手把手帶你 <br />
-                親自到家教到會
-            </h3>
-
-            <ul class="grid grid-cols-1 gap-6 lg:grid-cols-3">
-                <li
-                    class="rounded-xl border border-dark-200 bg-dark-200 py-12 px-6 text-center transition-colors duration-200 lg:border-transparent lg:bg-transparent lg:hover:border-primary lg:hover:bg-dark-200"
-                >
-                    <span
-                        class="material-symbols-outlined gradient-180deg mb-6 bg-clip-text text-[50px] text-transparent"
-                    >
-                        code
-                    </span>
-                    <h4 class="mb-4 text-[18px] font-bold leading-[1.44]">
-                        超過 100 種專業課程
-                    </h4>
-                    <p class="text-[18px] leading-[1.44]">
-                        學習標準化的電腦形式語言 <br />
-                        培養運算思維和邏輯素養
-                    </p>
-                </li>
-                <li
-                    class="rounded-xl border border-dark-200 bg-dark-200 py-12 px-6 text-center transition-colors duration-200 lg:border-transparent lg:bg-transparent lg:hover:border-primary lg:hover:bg-dark-200"
-                >
-                    <span
-                        class="material-symbols-outlined gradient-180deg mb-6 bg-clip-text text-[50px] text-transparent"
-                    >
-                        rocket_launch
-                    </span>
-                    <h4 class="mb-4 text-[18px] font-bold leading-[1.44]">
-                        高效學習
-                    </h4>
-                    <p class="text-[18px] leading-[1.44]">
-                        客製化專屬課表 <br />
-                        讓學習變簡單
-                    </p>
-                </li>
-                <li
-                    class="rounded-xl border border-dark-200 bg-dark-200 py-12 px-6 text-center transition-colors duration-200 lg:border-transparent lg:bg-transparent lg:hover:border-primary lg:hover:bg-dark-200"
-                >
-                    <span
-                        class="material-symbols-outlined gradient-180deg mb-6 bg-clip-text text-[50px] text-transparent"
-                    >
-                        location_on
-                    </span>
-                    <h4 class="mb-4 text-[18px] font-bold leading-[1.44]">
-                        指定地點
-                    </h4>
-                    <p class="text-[18px] leading-[1.44]">
-                        專業老師到你指定的地點 <br />
-                        一對一高效學習
-                    </p>
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="py-10 lg:py-20">
-    <div class="container">
-        <h3
-            class="title-underline relative text-center text-[22px] leading-[1.45] after:left-1/2 after:-translate-x-1/2 after:bg-primary"
-        >
-            預期上課流程
-        </h3>
-        <ul
-            class="mt-[66px] grid grid-cols-1 gap-[50px] md:grid-cols-2 lg:grid-cols-4 lg:gap-6"
-        >
-            <li class="relative rounded-xl border border-white p-12">
-                <span
-                    class="absolute top-0 left-12 -translate-y-1/2 bg-dark-300 px-2 text-[3rem] font-bold leading-[1.16] text-primary"
-                    >01</span
-                >
-                <h4 class="mb-4 text-[1.5rem] font-bold leading-[1.4583]">
-                    預約
-                </h4>
-                <p class="text-[18px] leading-[1.44]">
-                    線上預約指定課程與老師 <br />
-                    由老師安排專屬課程
-                </p>
-            </li>
-            <li class="relative rounded-xl border border-white p-12">
-                <span
-                    class="absolute top-0 left-12 -translate-y-1/2 bg-dark-300 px-2 text-[3rem] font-bold leading-[1.16] text-primary"
-                    >02</span
-                >
-                <h4 class="mb-4 text-[1.5rem] font-bold leading-[1.4583]">
-                    付款
-                </h4>
-                <p class="text-[18px] leading-[1.44]">
-                    支援各種支付方式 <br />
-                    提供12期分期付款
-                </p>
-            </li>
-            <li class="relative rounded-xl border border-white p-12">
-                <span
-                    class="absolute top-0 left-12 -translate-y-1/2 bg-dark-300 px-2 text-[3rem] font-bold leading-[1.16] text-primary"
-                    >03</span
-                >
-                <h4 class="mb-4 text-[1.5rem] font-bold leading-[1.4583]">
-                    上課
-                </h4>
-                <p class="text-[18px] leading-[1.44]">
-                    地點由您指定 <br />
-                    密集性一對一教學
-                </p>
-            </li>
-            <li class="relative rounded-xl border border-white p-12">
-                <span
-                    class="absolute top-0 left-12 -translate-y-1/2 bg-dark-300 px-2 text-[3rem] font-bold leading-[1.16] text-primary"
-                    >04</span
-                >
-                <h4 class="mb-4 text-[1.5rem] font-bold leading-[1.4583]">
-                    提供滿意度
-                </h4>
-                <p class="text-[18px] leading-[1.44]">
-                    提供課程滿意度及回饋 <br />
-                    讓我們持續成長與進步
-                </p>
-            </li>
-        </ul>
-    </div>
-</section>
-
-<section class="bg-dark-100 py-10">
-    <h3
-        class="title-underline relative mb-[42px] text-center text-[1.5rem] after:left-1/2 after:-translate-x-1/2 after:bg-primary lg:mb-16"
-    >
-        <span>你想要學習的程式，</span>
-        <span class="block md:inline-block">都在這裡</span>
-    </h3>
-    <ul
-        class="test flex gap-2 overflow-x-auto px-6 [scrollbar-width:thin] lg:justify-center"
-    >
-        <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
-            JavaScript
-        </li>
-        <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
-            HTML/CSS
-        </li>
-        <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">SQL</li>
-        <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">Java</li>
-        <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">SQL</li>
-        <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
-            Bash/Shell
-        </li>
-        <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
-            Python
-        </li>
-        <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
-            Python
-        </li>
-        <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">PHP</li>
-        <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">C++</li>
-        <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">11</li>
-        <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">12</li>
-    </ul>
-</section>
-
-<section class="bg-black py-10 lg:py-20">
-    <div class="container">
-        <h3
-            class="title-underline relative mb-10 text-center text-[22px] font-bold leading-[1.45] after:left-1/2 after:-translate-x-1/2 after:bg-primary lg:mb-16"
-        >
-            熱門推薦課程
-        </h3>
-        <ul
-            class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 xl:gap-6"
-        >
-            <li
-                class="flex flex-col rounded-3xl border border-transparent bg-dark-100 transition-colors hover:border-primary"
-            >
-                <div
-                    class="grid grow grid-rows-[repeat(2,auto),1fr,auto,max-content] p-6"
-                >
-                    <img
-                        src="./assets/images/teacher01.jpg"
-                        alt="teacher Belinda"
-                        class="mx-auto mb-2 h-[100px] w-[100px] rounded-full"
-                    />
-                    <p class="mb-6 text-center">Belinda</p>
-                    <h4 class="mb-2 text-[1.25rem] font-bold">
-                        基礎前端 - HTML
-                    </h4>
-
-                    <small class="text-base text-primary">前端語言</small>
-                    <p class="mt-2">
-                        帶領無基礎的平民老百姓，從最基礎的 HTML
-                        語法出發，使用最淺顯易懂的語言與生活隨處可見的例子，輕鬆進入...
-                    </p>
-                </div>
-
-                <div
-                    class="flex items-center justify-center gap-2 border-t border-gray-light py-4"
-                >
-                    <span>50分鐘</span>
-                    <strong class="text-[2rem]">NT$1600</strong>
-                </div>
-            </li>
-            <li
-                class="flex flex-col rounded-3xl border border-transparent bg-dark-100 transition-colors hover:border-primary"
-            >
-                <div
-                    class="grid grow grid-rows-[repeat(2,auto),1fr,auto,max-content] border-b border-gray-light p-6"
-                >
-                    <img
-                        src="./assets/images/teacher02.jpg"
-                        alt="teacher Guava"
-                        class="w-[100px mx-auto mb-2 h-[100px] rounded-full"
-                    />
-                    <p class="mb-6 text-center">Guava</p>
-                    <h4 class="mb-2 text-[1.25rem] font-bold">
-                        2022 Python 全攻略｜從入門到實務
-                    </h4>
-                    <small class="text-base text-primary">後端語言</small>
-                    <p class="mt-2">
-                        Python支援多種程式設計範式，包括函數式、指令式、反射式、結構化和物件導向程式設計，它擁有動態型別系...
-                    </p>
-                </div>
-                <div class="flex items-center justify-center gap-2 py-4">
-                    <span>50分鐘</span>
-                    <strong class="text-[2rem]">NT$2200</strong>
-                </div>
-            </li>
-            <li
-                class="flex flex-col rounded-3xl border border-transparent bg-dark-100 transition-colors hover:border-primary"
-            >
-                <div
-                    class="grid grow grid-rows-[repeat(2,auto),1fr,auto,max-content] border-b border-gray-light p-6"
-                >
-                    <img
-                        src="./assets/images/teacher03.jpg"
-                        alt="teacher Joe"
-                        class="w-[100px mx-auto mb-2 h-[100px] rounded-full"
-                    />
-                    <p class="mb-6 text-center">Joe</p>
-                    <h4 class="mb-2 text-[1.25rem] font-bold">
-                        活用 Line Bot ｜APP 開發到上架完整實戰攻略
-                    </h4>
-                    <small class="text-base text-primary">行動應用開發</small>
-                    <p class="mt-2">
-                        Line Bot
-                        可用於實用的目的，如客戶服務或資訊獲取，有些聊天機器人會搭載自然語言處理系統，但大多簡單的...
-                    </p>
-                </div>
-                <div class="flex items-center justify-center gap-2 py-4">
-                    <span>50分鐘</span>
-                    <strong class="text-[2rem]">NT$1800</strong>
-                </div>
-            </li>
-            <li
-                class="flex flex-col rounded-3xl border border-transparent bg-dark-100 transition-colors hover:border-primary"
-            >
-                <div
-                    class="grid grow grid-rows-[repeat(2,auto),1fr,auto,max-content] border-b border-gray-light p-6"
-                >
-                    <img
-                        src="./assets/images/teacher04.jpg"
-                        alt="teacher Lina"
-                        class="w-[100px mx-auto mb-2 h-[100px] rounded-full"
-                    />
-                    <p class="mb-6 text-center">Lina</p>
-                    <h4 class="mb-2 text-[1.25rem] font-bold">
-                        Linux 零基礎七天入門｜入門到實務
-                    </h4>
-                    <small class="text-base text-primary"
-                        >作業系統與伺服器</small
-                    >
-                    <p class="mt-2">
-                        Linux是一種自由和開放原始碼的類UNIX作業系統，作業系統中包含了許多使用者圖形介面和其他實用工具。...
-                    </p>
-                </div>
-                <div class="flex items-center justify-center gap-2 py-4">
-                    <span>50分鐘</span>
-                    <strong class="text-[2rem]">NT$1100</strong>
-                </div>
-            </li>
-        </ul>
-
-        <a
-            href="#"
-            class="gradient-104deg mx-auto mt-6 block w-fit rounded-lg px-8 py-2 lg:mt-12"
-            >所有課程列表</a
-        >
-    </div>
-</section>
-
-<ul class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
-    <!-- lg:min-h-[615px]  -->
-    <li
-        class="group relative grid min-h-[263px] content-center bg-[url('../images/info01.jpg')] bg-cover bg-center py-10 px-12 before:absolute before:inset-0 before:bg-dark-300/90 before:transition-colors xl:min-h-[615px] xl:hover:before:bg-dark-400/[.12]"
-    >
-        <div class="relative text-center xl:text-left">
-            <span
-                class="material-symbols-outlined text-[2rem] text-primary xl:text-white xl:group-hover:text-primary"
-            >
-                question_answer
-            </span>
-            <h4
-                class="title-underline relative mt-4 text-[1.5rem] font-bold after:left-1/2 after:-translate-x-1/2 after:bg-primary xl:after:left-0 xl:after:translate-x-0 xl:after:bg-white xl:group-hover:after:bg-primary"
-            >
-                對症下藥，專案製作
-            </h4>
-            <p
-                class="mt-12 text-[18px] opacity-80 xl:opacity-50 xl:group-hover:opacity-100"
-            >
-                除了可以瘋狂提問之外<br />還有機會一起完成專案
-            </p>
-        </div>
-    </li>
-    <li
-        class="group relative grid min-h-[263px] content-center bg-[url('../images/info02.jpg')] bg-cover bg-center py-10 px-12 before:absolute before:inset-0 before:bg-dark-300/90 before:transition-colors xl:min-h-[615px] xl:hover:before:bg-dark-400/[.12]"
-    >
-        <div class="relative text-center xl:text-left">
-            <span
-                class="material-symbols-outlined text-[2rem] text-primary xl:text-white xl:group-hover:text-primary"
-            >
-                tips_and_updates
-            </span>
-            <h4
-                class="title-underline relative mt-4 text-[1.5rem] font-bold after:left-1/2 after:-translate-x-1/2 after:bg-primary xl:after:left-0 xl:after:translate-x-0 xl:after:bg-white xl:group-hover:after:bg-primary"
-            >
-                激發你的學習潛力
-            </h4>
-            <p
-                class="mt-12 text-[18px] opacity-80 xl:opacity-50 xl:group-hover:opacity-100"
-            >
-                進度制課程安排&個人化學習建議<br />有效管理你的學習動力
-            </p>
-        </div>
-    </li>
-    <li
-        class="group relative grid min-h-[263px] content-center bg-[url('../images/info03.jpg')] bg-cover bg-center py-10 px-12 before:absolute before:inset-0 before:bg-dark-300/90 before:transition-colors xl:min-h-[615px] xl:hover:before:bg-dark-400/[.12]"
-    >
-        <div class="relative text-center xl:text-left">
-            <span
-                class="material-symbols-outlined text-[2rem] text-primary xl:text-white xl:group-hover:text-primary"
-            >
-                thumb_up
-            </span>
-            <h4
-                class="title-underline relative mt-4 text-[1.5rem] font-bold after:left-1/2 after:-translate-x-1/2 after:bg-primary xl:after:left-0 xl:after:translate-x-0 xl:after:bg-white xl:group-hover:after:bg-primary"
-            >
-                學習效率
-            </h4>
-            <p
-                class="mt-12 text-[18px] opacity-80 xl:opacity-50 xl:group-hover:opacity-100"
-            >
-                針對學員狀況調整內容與步調<br />學習精準最有效
-            </p>
-        </div>
-    </li>
-    <li
-        class="group relative grid min-h-[263px] content-center bg-[url('../images/info04.jpg')] bg-cover bg-center py-10 px-12 before:absolute before:inset-0 before:bg-dark-300/90 before:transition-colors xl:min-h-[615px] xl:hover:before:bg-dark-400/[.12]"
-    >
-        <div class="relative text-center xl:text-left">
-            <span
-                class="material-symbols-outlined text-[2rem] text-primary xl:text-white xl:group-hover:text-primary"
-            >
-                supervisor_account
-            </span>
-            <h4
-                class="title-underline relative mt-4 text-[1.5rem] font-bold after:left-1/2 after:-translate-x-1/2 after:bg-primary xl:after:left-0 xl:after:translate-x-0 xl:after:bg-white xl:group-hover:after:bg-primary"
-            >
-                一對一指導
-            </h4>
-            <p
-                class="mt-12 text-[18px] opacity-80 xl:opacity-50 xl:group-hover:opacity-100"
-            >
-                針對目的進行客製化課程<br />安排快速的學以致用
-            </p>
-        </div>
-    </li>
-</ul>
-
-<section class="py-10 lg:py-20">
-    <div class="container">
-        <h3
-            class="title-underline relative text-center text-[1.75rem] after:left-1/2 after:-translate-x-1/2 after:bg-primary"
-        >
-            文章分享
-        </h3>
-        <ul class="mt-14 grid grid-cols-1 gap-6 lg:mt-24 lg:grid-cols-3">
-            <li
-                class="group relative grid grid-rows-[auto,max-content,1fr,min-content] gap-4 lg:p-8"
-            >
-                <div
-                    class="absolute top-0 left-0 hidden h-8 w-8 rounded-tl-lg border-t border-l border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
-                ></div>
-                <div
-                    class="absolute top-0 right-0 hidden h-8 w-8 rounded-tr-lg border-r border-t border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
-                ></div>
-                <div
-                    class="absolute bottom-0 right-0 hidden h-8 w-8 rounded-br-lg border-b border-r border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
-                ></div>
-                <div
-                    class="absolute left-0 bottom-0 hidden h-8 w-8 rounded-bl-lg border-l border-b border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
-                ></div>
-                <img
-                    src="./assets/images/article01.jpg"
-                    alt="2022 前端開發者學習地圖"
-                />
-                <h4 class="text-[18px] font-bold">2022 前端開發者學習地圖</h4>
-                <p>
-                    轉職為前端的這條職業路上該如何發展？本篇為前端開發者提供學習地圖參考
-                </p>
-                <a href="#" class="justify-self-end text-[18px] text-primary">
-                    MORE
-                </a>
-            </li>
-            <li
-                class="group relative grid grid-rows-[auto,max-content,1fr,min-content] gap-4 lg:p-8"
-            >
-                <div
-                    class="absolute top-0 left-0 hidden h-8 w-8 rounded-tl-lg border-t border-l border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
-                ></div>
-                <div
-                    class="absolute top-0 right-0 hidden h-8 w-8 rounded-tr-lg border-r border-t border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
-                ></div>
-                <div
-                    class="absolute bottom-0 right-0 hidden h-8 w-8 rounded-br-lg border-b border-r border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
-                ></div>
-                <div
-                    class="absolute left-0 bottom-0 hidden h-8 w-8 rounded-bl-lg border-l border-b border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
-                ></div>
-                <img
-                    src="./assets/images/article02.jpg"
-                    alt="軟體工程師有哪些類別免費"
-                />
-                <h4 class="text-[18px] font-bold">軟體工程師有哪些類別免費</h4>
-                <p>
-                    軟體工程師領域廣闊，許多人仍然對此相關職務感到陌生，本篇就介紹主流的軟體工程師職務
-                </p>
-                <a href="#" class="justify-self-end text-[18px] text-primary">
-                    MORE
-                </a>
-            </li>
-            <li
-                class="group relative grid grid-rows-[auto,max-content,1fr,min-content] gap-4 lg:p-8"
-            >
-                <div
-                    class="absolute top-0 left-0 hidden h-8 w-8 rounded-tl-lg border-t border-l border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
-                ></div>
-                <div
-                    class="absolute top-0 right-0 hidden h-8 w-8 rounded-tr-lg border-r border-t border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
-                ></div>
-                <div
-                    class="absolute bottom-0 right-0 hidden h-8 w-8 rounded-br-lg border-b border-r border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
-                ></div>
-                <div
-                    class="absolute left-0 bottom-0 hidden h-8 w-8 rounded-bl-lg border-l border-b border-transparent transition-colors duration-150 lg:block lg:group-hover:border-primary"
-                ></div>
-                <img
-                    src="./assets/images/article03.jpg"
-                    alt="25 小時前端教學資源"
-                />
-                <h4 class="text-[18px] font-bold">25 小時前端教學資源</h4>
-                <p>
-                    這篇文章規劃了適合「前端工程師」的學習地圖，讓新進的學生了解如何選擇課程
-                </p>
-                <a href="#" class="justify-self-end text-[18px] text-primary">
-                    MORE
-                </a>
-            </li>
-        </ul>
-    </div>
-</section>
-
-<section class="bg-black py-10 lg:py-20">
-    <div class="container">
-        <h3
-            class="title-underline text-center text-[1.5rem] font-bold after:left-1/2"
-        >
-            專屬你的學習課程<br />
-            超過 3000 位學員得到了<br class="lg:hidden" />程式超能力
-        </h3>
-        <div
-            class="bg-cover bg-center lg:min-h-[582px] lg:grid-cols-none lg:justify-center lg:bg-[url('../images/bg_share.jpg')]"
-        >
-            <div
-                class="relative z-[1] flex flex-col gap-14 lg:flex-row lg:justify-center"
-            >
-                <div
-                    class="relative after:absolute after:top-0 after:left-0 after:-z-[1] after:h-full after:w-full after:translate-y-1 after:-translate-x-1 after:rounded-3xl after:border after:border-[#7C7E77] lg:w-max"
-                >
-                    <img
-                        src="./assets/images/share.jpg"
-                        class="rounded-3xl xl:w-[525px]"
-                    />
-                </div>
-                <div
-                    class="rounded-3xl rounded-bl-none bg-white p-8 text-[#494755] lg:absolute lg:-bottom-10 lg:right-0 lg:max-w-[416px]"
-                >
-                    <h4 class="mb-4 text-[18px] font-bold">老師很有耐心</h4>
+                    <h3 class="text-[1.5rem] font-bold lg:text-[1.75rem]">
+                        加入我們成為導師
+                    </h3>
                     <p>
-                        老師手把手的細心教學，用手繪圖，以淺顯易懂的方式，讓零網頁基礎的我也能快速了解網頁的架構與原理，學網頁變得有趣多了！
+                        歡迎各大程式大神加入我們，用知識在世界留下一點影響力。
                     </p>
-                    <img
-                        src="./assets/images/student01.jpg"
-                        alt="Student who satisfied with our service"
-                        class="absolute right-8 top-0 h-20 w-20 -translate-y-1/2 rounded-full lg:h-[100px] lg:w-[100px]"
-                    />
                 </div>
+                <a
+                    href="./checkout-step-1.html"
+                    class="rounded-lg border border-white py-2 px-8 shadow-lg shadow-transparent transition-all hover:border-primary hover:bg-primary hover:shadow-primary"
+                    >立即預約
+                </a>
             </div>
         </div>
-
-        <!-- hire teachers -->
-        <div
-            class="mt-20 grid grid-rows-[min-content,max-content,auto] justify-items-center gap-6 rounded-3xl bg-dark-200 px-6 py-10 lg:mx-auto lg:max-w-[966px] lg:grid-cols-[auto,1fr,auto] lg:grid-rows-none lg:items-center lg:justify-items-stretch"
-        >
-            <span class="material-symbols-outlined text-[5rem]">
-                menu_book
-            </span>
-            <div
-                class="inline-flex flex-col gap-6 text-center lg:gap-2 lg:text-left"
-            >
-                <h3 class="text-[1.5rem] font-bold lg:text-[1.75rem]">
-                    加入我們成為導師
-                </h3>
-                <p>歡迎各大程式大神加入我們，用知識在世界留下一點影響力。</p>
-            </div>
-            <a
-                href="#"
-                class="hover:gradient-104deg rounded-lg border border-white py-2 px-8 text-[18px]"
-                >立即預約</a
-            >
-        </div>
-    </div>
-</section>
+    </section>
+</main>
 
 
         <footer
-            class="bg-dark-400 py-4 px-4 text-center text-[.75rem] text-gray-dark xl:py-6 xl:text-[1rem]"
+            class="bg-dark-400 py-4 px-4 text-center text-[.75rem] text-gray-dark lg:py-6 lg:text-[1rem]"
         >
             Coding Home © 2022 All Rights Reserved
         </footer>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
         <script src="./assets/js/vendors.js"></script>
         <script src="./assets/js/all.js"></script>

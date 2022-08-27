@@ -19,10 +19,15 @@
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+        />
+
         <link rel="stylesheet" href="./assets/style/all.css" />
     </head>
 
-    <body class="bg-dark-300 text-white">
+    <body class="flex min-h-screen flex-col bg-dark-300 text-white">
         <header class="sticky top-0 z-10 bg-dark-100">
             <div class="container">
                 <div class="flex items-center justify-between py-6">
@@ -44,14 +49,26 @@
                         </a>
                     </h1>
 
-                    <ul class="hidden gap-12 text-[18px] md:flex">
-                        <li><a href="./index.html">首頁</a></li>
-                        <li><a href="./course-packages.html">課程介紹</a></li>
+                    <ul class="hidden gap-12 lg:flex">
+                        <li>
+                            <a
+                                href="./index.html"
+                                class="border-b-2 border-transparent transition-colors hover:border-primary"
+                                >首頁</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="./course-packages.html"
+                                class="border-b-2 border-transparent transition-colors hover:border-primary"
+                                >課程介紹</a
+                            >
+                        </li>
                         <li>
                             <a
                                 href="#"
-                                id="login"
-                                class="flex items-center gap-1"
+                                id="login-btn"
+                                class="flex items-center gap-1 border-b-2 border-transparent transition-colors hover:border-primary"
                             >
                                 <span class="material-symbols-outlined">
                                     account_circle
@@ -61,7 +78,7 @@
                         </li>
                     </ul>
 
-                    <button type="button" class="md:hidden" id="mobile-nav-btn">
+                    <button type="button" class="lg:hidden" id="mobile-nav-btn">
                         <span
                             class="material-symbols-outlined block text-[1.5rem] text-primary"
                         >
@@ -73,18 +90,20 @@
 
             <nav
                 id="mobile-menu"
-                class="absolute left-0 top-[calc(100%+2px)] right-0 h-0 overflow-hidden bg-inherit transition-all duration-700"
+                class="absolute left-0 top-full right-0 h-0 overflow-hidden bg-inherit transition-all duration-300"
                 data-collapsed="true"
             >
-                <ul class="space-y-6 py-6 text-center text-[18px] text-white">
-                    <li><a href="#" class="block">首頁</a></li>
+                <ul class="space-y-6 py-6 text-center text-white">
+                    <li><a href="./index.html">首頁</a></li>
                     <li>
-                        <a href="./course-packages.html" class="block"
-                            >課程介紹</a
-                        >
+                        <a href="./course-packages.html">課程介紹</a>
                     </li>
                     <li>
-                        <a href="#" class="inline-flex items-center gap-1">
+                        <a
+                            href="#"
+                            class="inline-flex items-center gap-1"
+                            id="mobile-login-btn"
+                        >
                             <span class="material-symbols-outlined">
                                 account_circle
                             </span>
@@ -100,129 +119,130 @@
             </div>
         </header>
 
-        <!-- to be continue -->
-        <div class="fixed inset-0 z-50 hidden content-center bg-black/60">
+        <div
+            class="fixed inset-0 z-50 hidden content-center bg-black/60"
+            id="backdrop"
+        >
             <div class="container">
-                <div class="flex justify-center">
-                    <div
-                        class="relative border border-white bg-dark-100 py-10 px-6 md:w-8/12 md:pt-6 md:pb-12 xl:w-1/2"
-                    >
-                        <div class="mx-auto w-full md:max-w-[331px]">
-                            <h2
-                                class="mb-6 text-center text-[1.5rem] font-bold md:mb-8"
+                <div
+                    id="modal"
+                    class="relative border border-white bg-dark-100 py-10 px-6 lg:mx-auto lg:w-8/12 lg:pt-6 lg:pb-12"
+                >
+                    <div class="mx-auto lg:max-w-[331px]">
+                        <h2
+                            class="mb-6 text-center text-[1.5rem] font-bold md:mb-8"
+                        >
+                            登入
+                        </h2>
+
+                        <form
+                            class="mb-6 space-y-4 text-gray-light lg:mb-12 lg:space-y-6"
+                        >
+                            <div>
+                                <label for="email" class="mb-1.5 inline-block"
+                                    >信箱</label
+                                >
+                                <input
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    class="w-full rounded border border-white bg-dark-300 py-2 px-4 placeholder-gray-light outline-none transition-colors focus:border-primary"
+                                    placeholder="請輸入信箱"
+                                />
+                            </div>
+                            <div>
+                                <label
+                                    for="password"
+                                    class="mb-1.5 inline-block"
+                                    >密碼</label
+                                >
+                                <input
+                                    type="password"
+                                    name="password"
+                                    id="password"
+                                    class="w-full rounded border border-white bg-dark-300 py-2 px-4 placeholder-gray-light outline-none transition-colors focus:border-primary"
+                                    placeholder="請輸入密碼"
+                                />
+                            </div>
+                            <button
+                                type="submit"
+                                class="gradient-97deg w-full rounded-lg py-2 text-white shadow-lg shadow-transparent transition-shadow hover:shadow-primary"
                             >
                                 登入
-                            </h2>
+                            </button>
+                        </form>
 
-                            <form class="mb-6 space-y-4 md:mb-12 md:space-y-6">
-                                <div class="mb-4 text-gray-light md:mb-8">
-                                    <label
-                                        for="email"
-                                        class="mb-1.5 inline-block"
-                                        >信箱</label
-                                    >
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        id="email"
-                                        class="w-full rounded border border-white bg-dark-300 py-2 px-4 placeholder-gray-light outline-none transition-colors focus:border-primary"
-                                        placeholder="請輸入信箱"
-                                    />
-                                </div>
-                                <div class="text-gray-light">
-                                    <label
-                                        for="password"
-                                        class="mb-1.5 inline-block"
-                                        >密碼</label
-                                    >
-                                    <input
-                                        type="password"
-                                        name="password"
-                                        id="password"
-                                        class="w-full rounded border border-white bg-dark-300 py-2 px-4 placeholder-gray-light outline-none transition-colors focus:border-primary"
-                                        placeholder="請輸入密碼"
-                                    />
-                                </div>
-                                <button
-                                    type="submit"
-                                    class="gradient-97deg w-full rounded-lg py-2"
-                                >
-                                    登入
-                                </button>
-                            </form>
-
-                            <div>
-                                <h3
-                                    class="relative mb-4 text-center before:absolute before:top-1/2 before:left-0 before:h-px before:w-full before:-translate-y-1/2 before:bg-gray-light"
-                                >
-                                    <span
-                                        class="isolate bg-dark-100 px-4 text-gray-light"
-                                        >其他登入方式</span
-                                    >
-                                </h3>
-                                <button
-                                    type="button"
-                                    class="mb-4 flex w-full justify-center gap-8 rounded border border-white py-2 transition-colors hover:border-primary md:mb-6"
-                                >
-                                    <img
-                                        src="./assets/images/icon_fb.svg"
-                                        alt="login with Facebook"
-                                        class="h-6 w-6"
-                                    />
-                                    Facebook 登入
-                                </button>
-                                <button
-                                    type="button"
-                                    class="flex w-full justify-center gap-8 rounded border border-white py-2 transition-colors hover:border-primary"
-                                >
-                                    <img
-                                        src="./assets/images/icon_google.svg"
-                                        alt="login with Google"
-                                        class="h-6 w-6"
-                                    />
-                                    Google 登入
-                                </button>
-                            </div>
-
-                            <button
-                                type="button"
-                                class="absolute top-4 right-6 md:top-[30px]"
+                        <div>
+                            <h3
+                                class="relative mb-4 text-center before:absolute before:top-1/2 before:left-0 before:h-px before:w-full before:-translate-y-1/2 before:bg-gray-light"
                             >
                                 <span
-                                    class="material-symbols-outlined text-[1.5rem]"
+                                    class="isolate bg-dark-100 px-4 text-gray-light"
+                                    >其他登入方式</span
                                 >
-                                    close
-                                </span>
+                            </h3>
+                            <button
+                                type="button"
+                                class="mb-4 flex w-full justify-center gap-8 rounded border border-white py-2 transition-colors hover:border-primary lg:mb-6"
+                            >
+                                <img
+                                    src="./assets/images/icon_fb.svg"
+                                    alt="login with Facebook"
+                                    class="h-6 w-6"
+                                />
+                                Facebook 登入
+                            </button>
+                            <button
+                                type="button"
+                                class="flex w-full justify-center gap-8 rounded border border-white py-2 transition-colors hover:border-primary"
+                            >
+                                <img
+                                    src="./assets/images/icon_google.svg"
+                                    alt="login with Google"
+                                    class="h-6 w-6"
+                                />
+                                Google 登入
                             </button>
                         </div>
+
+                        <button
+                            type="button"
+                            class="absolute top-4 right-6 lg:top-[30px]"
+                            id="modal-close-btn"
+                        >
+                            <span
+                                class="material-symbols-outlined text-[1.5rem]"
+                            >
+                                close
+                            </span>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
 
         
-<!-- grid content-center  -->
-<div class="min-h-[calc(100vh-124px)] bg-black md:min-h-[calc(100vh-164px)]">
-    <section class="bg-black pt-6 pb-4 xl:bg-dark-300">
+<main class="grow bg-black">
+    <section class="min-h-[88px] bg-black pt-6 pb-4 xl:bg-dark-300">
         <div class="container">
             <ul
-                class="mx-auto grid h-0.5 w-4/5 grid-flow-col justify-between bg-gray-light xl:max-w-[768px]"
+                class="relative top-0 left-0 mx-auto grid h-0.5 w-4/5 grid-flow-col justify-between bg-gray-light after:absolute after:h-0.5 after:w-1/2 after:bg-primary xl:max-w-[768px]"
             >
-                <li class="relative -translate-x-1/2">
+                <li class="relative z-[1] -translate-x-1/2">
                     <span
                         class="absolute left-1/2 top-0 mx-auto mb-1 grid h-5 w-5 -translate-y-1/2 -translate-x-1/2 place-items-center rounded-full border border-primary bg-primary text-[.75rem] leading-none"
                         >1</span
                     >
                     <p class="mt-4 text-primary">課程報名</p>
                 </li>
-                <li class="relative text-gray-light">
+                <li class="relative z-[1]">
                     <span
-                        class="absolute left-1/2 top-0 mx-auto grid h-5 w-5 -translate-y-1/2 -translate-x-1/2 place-items-center rounded-full border border-gray-light bg-dark-100 text-[.75rem] leading-none"
+                        class="absolute left-1/2 top-0 mx-auto grid h-5 w-5 -translate-y-1/2 -translate-x-1/2 place-items-center rounded-full border border-primary bg-primary text-[.75rem] leading-none"
                         >2</span
                     >
-                    <p class="mt-4">信用卡付款</p>
+                    <p class="mt-4 text-primary">信用卡付款</p>
                 </li>
-                <li class="relative translate-x-1/2 text-gray-light">
+                <li class="relative z-[1] translate-x-1/2 text-gray-light">
                     <span
                         class="absolute left-1/2 top-0 mx-auto grid h-5 w-5 -translate-y-1/2 -translate-x-1/2 place-items-center rounded-full border border-gray-light bg-dark-100 text-[.75rem] leading-none"
                         >3</span
@@ -254,7 +274,7 @@
                             type="tel"
                             name="credit-card-number"
                             id="credit-card-number"
-                            class="mt-1.5 w-full rounded border border-white bg-dark-300 px-4 py-2"
+                            class="mt-1.5 w-full rounded border border-white bg-dark-300 px-4 py-2 outline-none transition-colors focus:border-primary"
                             placeholder="Xxxx-xxxx-xxxx-xxxx"
                         />
                     </div>
@@ -264,7 +284,7 @@
                             type="text"
                             name="secure-code"
                             id="secure-code"
-                            class="mt-1.5 w-full rounded border border-white bg-dark-300 px-4 py-2"
+                            class="mt-1.5 w-full rounded border border-white bg-dark-300 px-4 py-2 outline-none transition-colors focus:border-primary"
                             placeholder="***"
                         />
                     </div>
@@ -274,7 +294,7 @@
                             type="text"
                             name="valid-date"
                             id="valid-date"
-                            class="mt-1.5 w-full rounded border border-white bg-dark-300 px-4 py-2"
+                            class="mt-1.5 w-full rounded border border-white bg-dark-300 px-4 py-2 outline-none transition-colors focus:border-primary"
                             placeholder="(MM-YY)"
                         />
                     </div>
@@ -283,24 +303,25 @@
                     class="mt-4 flex flex-col gap-6 md:mt-6 md:flex-row md:items-center md:justify-between"
                 >
                     <p class="text-">NT$1600</p>
-                    <button
-                        type="submit"
-                        class="gradient-99deg rounded-lg py-2 px-4 text-[18px] md:px-12"
+                    <a
+                        href="./checkout-success.html"
+                        class="gradient-99deg rounded-lg py-2 px-4 text-[18px] shadow-lg shadow-transparent hover:shadow-primary md:px-12"
                     >
                         下一步
-                    </button>
+                    </a>
                 </div>
             </form>
         </div>
     </div>
-</div>
+</main>
 
 
         <footer
-            class="bg-dark-400 py-4 px-4 text-center text-[.75rem] text-gray-dark xl:py-6 xl:text-[1rem]"
+            class="bg-dark-400 py-4 px-4 text-center text-[.75rem] text-gray-dark lg:py-6 lg:text-[1rem]"
         >
             Coding Home © 2022 All Rights Reserved
         </footer>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
         <script src="./assets/js/vendors.js"></script>
         <script src="./assets/js/all.js"></script>
