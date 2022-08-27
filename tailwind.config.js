@@ -16,6 +16,12 @@ module.exports = {
                 primary: "#62DB54",
                 accent: "#09ACF5",
             },
+            spacing: {
+                testing: "1rem",
+            },
+            listStyleType: {
+                square: "square",
+            },
         },
         container: {
             center: true,

@@ -4,189 +4,191 @@ engine: ejs
 layout: ./app/layout.ejs
 ---
 
-<section class="grid min-h-[88px] content-center bg-black xl:bg-dark-300">
-    <div class="container">
-        <ul
-            class="mx-auto grid h-0.5 w-4/5 grid-flow-col justify-between bg-gray-light xl:max-w-[768px]"
-        >
-            <li class="relative -translate-x-1/2">
-                <span
-                    class="absolute left-1/2 top-0 mx-auto mb-1 grid h-5 w-5 -translate-y-1/2 -translate-x-1/2 place-items-center rounded-full border border-primary bg-primary text-[.75rem] leading-none"
-                    >1</span
-                >
-                <p class="mt-4 text-primary">課程報名</p>
-            </li>
-            <li class="relative text-gray-light">
-                <span
-                    class="absolute left-1/2 top-0 mx-auto grid h-5 w-5 -translate-y-1/2 -translate-x-1/2 place-items-center rounded-full border border-gray-light bg-dark-100 text-[.75rem] leading-none"
-                    >2</span
-                >
-                <p class="mt-4">信用卡付款</p>
-            </li>
-            <li class="relative translate-x-1/2 text-gray-light">
-                <span
-                    class="absolute left-1/2 top-0 mx-auto grid h-5 w-5 -translate-y-1/2 -translate-x-1/2 place-items-center rounded-full border border-gray-light bg-dark-100 text-[.75rem] leading-none"
-                    >3</span
-                >
-                <p class="mt-4">付款成功</p>
-            </li>
-        </ul>
-    </div>
-</section>
-
-<main class="bg-black pt-6 pb-10 xl:pt-12 xl:pb-36">
-    <div class="container">
-        <div
-            class="relative flex flex-col bg-dark-300 p-6 xl:ml-auto xl:mr-12 xl:max-w-[856px] xl:py-12 xl:pr-8 xl:pl-[114px]"
-        >
-            <figure
-                class="relative bg-dark-100 p-6 md:mx-auto md:max-w-[300px] xl:absolute xl:left-0 xl:top-1/2 xl:max-w-[416px] xl:translate-x-[calc(-100%+4.5rem)] xl:-translate-y-1/2 xl:px-8 xl:py-12"
+<main class="grow bg-black">
+    <section class="grid min-h-[88px] content-center bg-black xl:bg-dark-300">
+        <div class="container">
+            <ul
+                class="mx-auto grid h-0.5 w-4/5 grid-flow-col justify-between bg-gray-light xl:max-w-[768px]"
             >
-                <img
-                    src="./assets/images/teacher01.jpg"
-                    alt="teacher Belinda"
-                    class="mx-auto mb-4 h-[100px] w-[100px] rounded-full border-[3px] border-primary xl:mb-6"
-                />
-                <figcaption class="text-center">
-                    2022 Python 全攻略｜從入門到實務
-                </figcaption>
-                <p class="py-2 text-center text-primary">前端語言</p>
-                <p>
-                    帶領無基礎、文組生、對網頁設計有興趣的人，進入網站工程領域的基礎課，將從最基礎的
-                    HTML 語法出發。
-                </p>
-                <div
-                    class="absolute top-full left-1/2 -translate-x-1/2 border-t-[.75rem] border-l-[.75rem] border-r-[.75rem] border-transparent border-t-dark-100 xl:left-auto xl:top-1/2 xl:right-0 xl:-translate-y-1/2 xl:translate-x-full xl:border-r-0 xl:border-b-[.75rem] xl:border-t-transparent xl:border-l-dark-100"
-                ></div>
-            </figure>
-
-            <h2
-                class="mb-6 mt-11 text-center text-[1.5rem] font-bold xl:mt-0 xl:mb-12"
-            >
-                課程報名
-            </h2>
-            <div class="mb-8">
-                <h3 class="mb-4 text-center font-bold xl:mb-1.5 xl:text-left">
-                    選擇付款方式
-                </h3>
-                <div
-                    class="grid grid-cols-2 gap-2 md:auto-cols-max md:grid-flow-col md:grid-cols-none"
-                >
-                    <button
-                        type="button"
-                        class="rounded-lg border border-primary p-4 text-primary xl:px-8"
+                <li class="relative -translate-x-1/2">
+                    <span
+                        class="absolute left-1/2 top-0 mx-auto mb-1 grid h-5 w-5 -translate-y-1/2 -translate-x-1/2 place-items-center rounded-full border border-primary bg-primary text-[.75rem] leading-none"
+                        >1</span
                     >
-                        信用卡付款
-                    </button>
-                    <button
-                        type="button"
-                        class="rounded-lg border border-white p-4 transition-colors hover:border-primary hover:text-primary xl:px-8"
+                    <p class="mt-4 text-primary">課程報名</p>
+                </li>
+                <li class="relative text-gray-light">
+                    <span
+                        class="absolute left-1/2 top-0 mx-auto grid h-5 w-5 -translate-y-1/2 -translate-x-1/2 place-items-center rounded-full border border-gray-light bg-dark-100 text-[.75rem] leading-none"
+                        >2</span
                     >
-                        超商繳款
-                    </button>
-                    <button
-                        type="button"
-                        class="rounded-lg border border-white p-4 transition-colors hover:border-primary hover:text-primary xl:px-8"
+                    <p class="mt-4">信用卡付款</p>
+                </li>
+                <li class="relative translate-x-1/2 text-gray-light">
+                    <span
+                        class="absolute left-1/2 top-0 mx-auto grid h-5 w-5 -translate-y-1/2 -translate-x-1/2 place-items-center rounded-full border border-gray-light bg-dark-100 text-[.75rem] leading-none"
+                        >3</span
                     >
-                        超商繳款
-                    </button>
-                    <button
-                        type="button"
-                        class="rounded-lg border border-white p-4 transition-colors hover:border-primary hover:text-primary xl:px-8"
-                    >
-                        12期分期付款
-                    </button>
-                </div>
-            </div>
-            <form>
-                <h3 class="mb-4 text-center font-bold xl:mb-6 xl:text-left">
-                    訂單資訊
-                </h3>
-                <div class="grid gap-4 xl:grid-cols-2 xl:gap-x-12 xl:gap-y-6">
-                    <div class="text-gray-light">
-                        <label for="username">姓名</label>
-                        <input
-                            type="text"
-                            name="username"
-                            id="username"
-                            placeholder="請輸入姓名"
-                            class="mt-2 block w-full rounded border border-white bg-dark-300 py-2 px-4 outline-none transition-colors focus:border-primary xl:mt-1.5"
-                        />
-                    </div>
-                    <div class="text-gray-light">
-                        <label for="phone-number">電話</label>
-                        <input
-                            type="tel"
-                            name="phone-number"
-                            id="phone-number"
-                            placeholder="請輸入電話號碼"
-                            class="mt-2 block w-full rounded border border-white bg-dark-300 py-2 px-4 outline-none transition-colors focus:border-primary xl:mt-1.5"
-                        />
-                    </div>
-                    <div class="col-span-full text-gray-light">
-                        <label for="email"> Email </label>
-                        <input
-                            type="email"
-                            name="email"
-                            id="email"
-                            placeholder="請輸入Email"
-                            class="mt-2 block w-full rounded border border-white bg-dark-300 py-2 px-4 outline-none transition-colors focus:border-primary xl:mt-1.5"
-                        />
-                    </div>
-                    <div class="text-gray-light">
-                        <label for="course-duration">課程</label>
-                        <select
-                            name="course-duration"
-                            id="course-duration"
-                            placeholder="請輸入Email"
-                            class="mt-2 block w-full rounded border border-white bg-dark-300 py-2 px-4 outline-none transition-colors focus:border-primary xl:mt-1.5"
-                        >
-                            <option value="10堂50分鐘">10堂50分鐘</option>
-                            <option value="1堂50分鐘">1堂50分鐘</option>
-                            <option value="3堂50分鐘">3堂50分鐘</option>
-                            <option value="20堂50分鐘">20堂50分鐘</option>
-                            <option value="洽談報價">洽談報價</option>
-                        </select>
-                    </div>
-                    <div class="text-gray-light">
-                        <label for="reserve-date">想預約的日期</label>
-                        <input
-                            type="text"
-                            name="reserve-date"
-                            placeholder="請選擇日期"
-                            id="reserve-date"
-                            class="relative mt-2 block w-full rounded border border-white bg-dark-300 py-2 px-4 outline-none transition-colors focus:border-primary xl:mt-1.5"
-                        />
-                    </div>
-                    <div class="col-span-full text-gray-light">
-                        <label for="address">上課地點</label>
-                        <input
-                            type="text"
-                            name="address"
-                            id="address"
-                            placeholder="請輸入上課地點"
-                            class="mt-2 block w-full rounded border border-white bg-dark-300 py-2 px-4 outline-none transition-colors focus:border-primary xl:mt-1.5"
-                        />
-                    </div>
-                </div>
-                <div
-                    class="mt-6 flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
-                >
-                    <p class="text-[18px]">NT$1600</p>
-                    <a
-                        href="./checkout-step-2.html"
-                        class="gradient-104deg rounded-lg py-2 px-12 text-center"
-                    >
-                        前往結賬
-                    </a>
-                </div>
-            </form>
+                    <p class="mt-4">付款成功</p>
+                </li>
+            </ul>
         </div>
-    </div>
-</main>
+    </section>
 
-<!-- <script>
-    const datepicker = new Datepicker(document.querySelector("#reserve-date"), {
-        orientation: "bottom auto",
-    });
-</script> -->
+    <section class="bg-black pt-6 pb-10 xl:pt-12 xl:pb-36">
+        <div class="container">
+            <div
+                class="relative flex flex-col bg-dark-300 p-6 xl:ml-auto xl:mr-12 xl:max-w-[856px] xl:py-12 xl:pr-8 xl:pl-[114px]"
+            >
+                <figure
+                    class="relative bg-dark-100 p-6 md:mx-auto md:max-w-[300px] xl:absolute xl:left-0 xl:top-1/2 xl:max-w-[416px] xl:translate-x-[calc(-100%+4.5rem)] xl:-translate-y-1/2 xl:px-8 xl:py-12"
+                >
+                    <img
+                        src="./assets/images/teacher01.jpg"
+                        alt="teacher Belinda"
+                        class="mx-auto mb-4 h-[100px] w-[100px] rounded-full border-[3px] border-primary xl:mb-6"
+                    />
+                    <figcaption class="text-center">
+                        2022 Python 全攻略｜從入門到實務
+                    </figcaption>
+                    <p class="my-2 text-center text-primary xl:mt-1 xl:mb-2">
+                        前端語言
+                    </p>
+                    <p>
+                        帶領無基礎、文組生、對網頁設計有興趣的人，進入網站工程領域的基礎課，將從最基礎的
+                        HTML 語法出發。
+                    </p>
+                    <div
+                        class="absolute top-full left-1/2 -translate-x-1/2 border-[.75rem] border-b-0 border-transparent border-t-dark-100 xl:left-auto xl:top-1/2 xl:right-0 xl:-translate-y-1/2 xl:translate-x-full xl:border-r-0 xl:border-b-[.75rem] xl:border-t-transparent xl:border-l-dark-100"
+                    ></div>
+                </figure>
+
+                <h2
+                    class="mb-6 mt-11 text-center text-[1.5rem] font-bold xl:mt-0 xl:mb-12"
+                >
+                    課程報名
+                </h2>
+                <div class="mb-8">
+                    <h3
+                        class="mb-4 text-center font-bold xl:mb-1.5 xl:text-left"
+                    >
+                        選擇付款方式
+                    </h3>
+                    <div
+                        class="grid grid-cols-2 gap-2 lg:grid-cols-[repeat(4,max-content)]"
+                    >
+                        <button
+                            type="button"
+                            class="rounded-lg border border-primary p-4 text-primary lg:px-8"
+                        >
+                            信用卡付款
+                        </button>
+                        <button
+                            type="button"
+                            class="rounded-lg border border-white p-4 shadow-lg shadow-transparent transition hover:border-primary hover:bg-primary hover:shadow-primary lg:px-8"
+                        >
+                            超商繳款
+                        </button>
+                        <button
+                            type="button"
+                            class="rounded-lg border border-white p-4 shadow-lg shadow-transparent transition hover:border-primary hover:bg-primary hover:shadow-primary lg:px-8"
+                        >
+                            超商繳款
+                        </button>
+                        <button
+                            type="button"
+                            class="rounded-lg border border-white p-4 shadow-lg shadow-transparent transition hover:border-primary hover:bg-primary hover:shadow-primary lg:px-8"
+                        >
+                            12期分期付款
+                        </button>
+                    </div>
+                </div>
+                <form>
+                    <h3 class="mb-4 text-center font-bold xl:mb-6 xl:text-left">
+                        訂單資訊
+                    </h3>
+                    <div
+                        class="grid gap-4 xl:grid-cols-2 xl:gap-x-12 xl:gap-y-6"
+                    >
+                        <div class="text-gray-light">
+                            <label for="username">姓名</label>
+                            <input
+                                type="text"
+                                name="username"
+                                id="username"
+                                placeholder="請輸入姓名"
+                                class="mt-2 block w-full rounded border border-white bg-dark-300 py-2 px-4 outline-none transition-colors focus:border-primary xl:mt-1.5"
+                            />
+                        </div>
+                        <div class="text-gray-light">
+                            <label for="phone-number">電話</label>
+                            <input
+                                type="tel"
+                                name="phone-number"
+                                id="phone-number"
+                                placeholder="請輸入電話號碼"
+                                class="mt-2 block w-full rounded border border-white bg-dark-300 py-2 px-4 outline-none transition-colors focus:border-primary xl:mt-1.5"
+                            />
+                        </div>
+                        <div class="col-span-full text-gray-light">
+                            <label for="email"> Email </label>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                placeholder="請輸入Email"
+                                class="mt-2 block w-full rounded border border-white bg-dark-300 py-2 px-4 outline-none transition-colors focus:border-primary xl:mt-1.5"
+                            />
+                        </div>
+                        <div class="text-gray-light">
+                            <label for="course-duration">課程</label>
+                            <select
+                                name="course-duration"
+                                id="course-duration"
+                                placeholder="請輸入Email"
+                                class="mt-2 block w-full appearance-none rounded border border-white bg-dark-300 py-2 px-4 outline-none transition-colors focus:border-primary xl:mt-1.5"
+                            >
+                                <option value="10堂50分鐘">10堂50分鐘</option>
+                                <option value="1堂50分鐘">1堂50分鐘</option>
+                                <option value="3堂50分鐘">3堂50分鐘</option>
+                                <option value="20堂50分鐘">20堂50分鐘</option>
+                                <option value="洽談報價">洽談報價</option>
+                            </select>
+                        </div>
+                        <div class="text-gray-light">
+                            <label for="reserve-date">想預約的日期</label>
+                            <input
+                                type="text"
+                                name="reserve-date"
+                                placeholder="請選擇日期"
+                                id="reserve-date"
+                                class="relative mt-2 block w-full rounded border border-white bg-dark-300 py-2 px-4 outline-none transition-colors focus:border-primary xl:mt-1.5"
+                            />
+                        </div>
+                        <div class="col-span-full text-gray-light">
+                            <label for="address">上課地點</label>
+                            <input
+                                type="text"
+                                name="address"
+                                id="address"
+                                placeholder="請輸入上課地點"
+                                class="mt-2 block w-full rounded border border-white bg-dark-300 py-2 px-4 outline-none transition-colors focus:border-primary xl:mt-1.5"
+                            />
+                        </div>
+                    </div>
+                    <div
+                        class="mt-6 flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
+                    >
+                        <p>NT$1600</p>
+                        <a
+                            href="./checkout-step-2.html"
+                            class="gradient-104deg rounded-lg py-2 px-12 text-center shadow-lg shadow-transparent transition-shadow hover:shadow-primary"
+                        >
+                            前往結賬
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>

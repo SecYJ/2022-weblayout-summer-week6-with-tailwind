@@ -4,28 +4,27 @@ engine: ejs
 layout: ./app/layout.ejs
 ---
 
-<!-- grid content-center  -->
-<div class="min-h-[calc(100vh-124px)] bg-black md:min-h-[calc(100vh-164px)]">
-    <section class="bg-black pt-6 pb-4 xl:bg-dark-300">
+<main class="grow bg-black">
+    <section class="min-h-[88px] bg-black pt-6 pb-4 xl:bg-dark-300">
         <div class="container">
             <ul
-                class="mx-auto grid h-0.5 w-4/5 grid-flow-col justify-between bg-gray-light xl:max-w-[768px]"
+                class="relative top-0 left-0 mx-auto grid h-0.5 w-4/5 grid-flow-col justify-between bg-gray-light after:absolute after:h-0.5 after:w-1/2 after:bg-primary xl:max-w-[768px]"
             >
-                <li class="relative -translate-x-1/2">
+                <li class="relative z-[1] -translate-x-1/2">
                     <span
                         class="absolute left-1/2 top-0 mx-auto mb-1 grid h-5 w-5 -translate-y-1/2 -translate-x-1/2 place-items-center rounded-full border border-primary bg-primary text-[.75rem] leading-none"
                         >1</span
                     >
                     <p class="mt-4 text-primary">課程報名</p>
                 </li>
-                <li class="relative text-gray-light">
+                <li class="relative z-[1]">
                     <span
-                        class="absolute left-1/2 top-0 mx-auto grid h-5 w-5 -translate-y-1/2 -translate-x-1/2 place-items-center rounded-full border border-gray-light bg-dark-100 text-[.75rem] leading-none"
+                        class="absolute left-1/2 top-0 mx-auto grid h-5 w-5 -translate-y-1/2 -translate-x-1/2 place-items-center rounded-full border border-primary bg-primary text-[.75rem] leading-none"
                         >2</span
                     >
-                    <p class="mt-4">信用卡付款</p>
+                    <p class="mt-4 text-primary">信用卡付款</p>
                 </li>
-                <li class="relative translate-x-1/2 text-gray-light">
+                <li class="relative z-[1] translate-x-1/2 text-gray-light">
                     <span
                         class="absolute left-1/2 top-0 mx-auto grid h-5 w-5 -translate-y-1/2 -translate-x-1/2 place-items-center rounded-full border border-gray-light bg-dark-100 text-[.75rem] leading-none"
                         >3</span
@@ -57,7 +56,7 @@ layout: ./app/layout.ejs
                             type="tel"
                             name="credit-card-number"
                             id="credit-card-number"
-                            class="mt-1.5 w-full rounded border border-white bg-dark-300 px-4 py-2"
+                            class="mt-1.5 w-full rounded border border-white bg-dark-300 px-4 py-2 outline-none transition-colors focus:border-primary"
                             placeholder="Xxxx-xxxx-xxxx-xxxx"
                         />
                     </div>
@@ -67,7 +66,7 @@ layout: ./app/layout.ejs
                             type="text"
                             name="secure-code"
                             id="secure-code"
-                            class="mt-1.5 w-full rounded border border-white bg-dark-300 px-4 py-2"
+                            class="mt-1.5 w-full rounded border border-white bg-dark-300 px-4 py-2 outline-none transition-colors focus:border-primary"
                             placeholder="***"
                         />
                     </div>
@@ -77,7 +76,7 @@ layout: ./app/layout.ejs
                             type="text"
                             name="valid-date"
                             id="valid-date"
-                            class="mt-1.5 w-full rounded border border-white bg-dark-300 px-4 py-2"
+                            class="mt-1.5 w-full rounded border border-white bg-dark-300 px-4 py-2 outline-none transition-colors focus:border-primary"
                             placeholder="(MM-YY)"
                         />
                     </div>
@@ -86,14 +85,14 @@ layout: ./app/layout.ejs
                     class="mt-4 flex flex-col gap-6 md:mt-6 md:flex-row md:items-center md:justify-between"
                 >
                     <p class="text-">NT$1600</p>
-                    <button
-                        type="submit"
-                        class="gradient-99deg rounded-lg py-2 px-4 text-[18px] md:px-12"
+                    <a
+                        href="./checkout-success.html"
+                        class="gradient-99deg rounded-lg py-2 px-4 text-[18px] shadow-lg shadow-transparent hover:shadow-primary md:px-12"
                     >
                         下一步
-                    </button>
+                    </a>
                 </div>
             </form>
         </div>
     </div>
-</div>
+</main>

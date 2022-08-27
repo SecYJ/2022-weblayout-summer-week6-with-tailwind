@@ -1,29 +1,71 @@
 const mobileNavBtn = document.querySelector("#mobile-nav-btn");
 const mobileMenu = document.querySelector("#mobile-menu");
-const loginBtn = document.querySelector("#login");
+const mobileLoginBtn = document.querySelector("#mobile-login-btn");
+const loginBtn = document.querySelector("#login-btn");
+const modalCloseBtn = document.querySelector("#modal-close-btn");
+const backdrop = document.querySelector("#backdrop");
 const modal = document.querySelector("#modal");
 
-mobileNavBtn.addEventListener("click", () => {
-    const elHeight = mobileMenu.scrollHeight;
-    const isCollapsed = mobileMenu.dataset.collapsed;
+window.addEventListener("DOMContentLoaded", () => {
+    mobileNavBtn.addEventListener("click", () => {
+        const elHeight = mobileMenu.scrollHeight;
+        const isCollapsed = mobileMenu.dataset.collapsed;
 
-    if (isCollapsed === "true") {
-        mobileMenu.style.height = `${elHeight}px`;
-        mobileMenu.dataset.collapsed = "false";
-    } else {
-        mobileMenu.style.height = 0;
-        mobileMenu.dataset.collapsed = "true";
-    }
-    // expandMenu(mobileMenu);
-});
+        if (isCollapsed === "true") {
+            mobileMenu.style.height = `${elHeight}px`;
+            mobileMenu.dataset.collapsed = "false";
+        } else {
+            mobileMenu.style.height = 0;
+            mobileMenu.dataset.collapsed = "true";
+        }
+    });
 
-loginBtn.addEventListener("click", () => {
-    // document.body.classList.add("fixed-modal");
-    document.body.style.overflow = "hidden";
-    document.body.style.paddingRight = "17px";
-    modal.showModal();
-});
+    const showModal = (e) => {
+        e.stopPropagation();
+        document.body.classList.add("disabled-scrolling");
+        backdrop.classList.remove("hidden");
+        backdrop.classList.add("grid");
+        document.addEventListener("click", hideModal);
+    };
 
-const datepicker = new Datepicker(document.querySelector("#reserve-date"), {
-    orientation: "bottom auto",
+    const hideModal = (e) => {
+        if (
+            e.target.parentElement.id === "modal-close-btn" ||
+            !e.target.closest("#modal")
+        ) {
+            backdrop.classList.remove("grid");
+            backdrop.classList.add("hidden");
+            document.body.classList.remove("disabled-scrolling");
+            document.removeEventListener("click", hideModal);
+        }
+    };
+
+    mobileLoginBtn.addEventListener("click", showModal);
+    loginBtn.addEventListener("click", showModal);
+
+    new Swiper(".swiper", {
+        effect: "fade",
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            bulletElement: "li",
+        },
+
+        navigation: {
+            nextEl: ".carousel-next-btn",
+            prevEl: ".carousel-prev-btn",
+        },
+    });
+
+    const reserveDate = document.querySelector("#reserve-date");
+    const validDate = document.querySelector("#valid-date");
+
+    const datepickerInit = (domEl) => {
+        new Datepicker(domEl, {
+            orientation: "bottom auto",
+        });
+    };
+
+    if (reserveDate) datepickerInit(reserveDate);
+    if (validDate) datepickerInit(validDate);
 });

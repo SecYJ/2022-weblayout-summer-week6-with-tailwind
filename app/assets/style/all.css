@@ -3,15 +3,34 @@
 @tailwind utilities;
 
 @layer base {
-    /* html,
-    body {
-        height: 100%;
-    } */
-
     body {
         font-family: "Noto Sans TC", "Azeret Mono", monospace, sans-serif;
         line-height: 1.5;
     }
+}
+
+.swiper-slide {
+    @apply h-auto;
+}
+
+.swiper-pagination {
+    @apply static flex items-center;
+}
+
+.swiper-pagination-bullet {
+    @apply rounded-full bg-primary opacity-100;
+}
+
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    @apply w-auto;
+}
+
+.swiper-pagination-bullet-active {
+    @apply h-2 w-4;
+}
+
+.swiper-button-disabled {
+    @apply opacity-50;
 }
 
 @layer utilities {
@@ -39,6 +58,14 @@
         );
     }
 
+    .gradient-102deg {
+        background-image: linear-gradient(
+            102deg,
+            rgba(9, 172, 245, 1) 43%,
+            rgba(98, 219, 84, 1) 100%
+        );
+    }
+
     .gradient-99deg {
         background-image: linear-gradient(
             99deg,
@@ -55,33 +82,15 @@
         );
     }
 
-    .title-underline {
-        @apply after:absolute after:top-[calc(100%+1rem)] after:block after:h-[3px] after:w-[50px];
+    .gradient-240deg {
+        background-image: linear-gradient(
+            240deg,
+            rgba(9, 172, 245, 1) 43%,
+            rgba(98, 219, 84, 1) 100%
+        );
     }
+}
 
-    .test::-moz-scrollbar {
-        -webkit-appearance: none;
-        width: 7px;
-        display: block;
-        /* display: none; */
-    }
-
-    .test::-moz-scrollbar-thumb {
-        border-radius: 4px;
-        background-color: rgba(0, 0, 0, 0.5);
-        -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
-    }
-
-    .test:hover::-webkit-scrollbar {
-        /* -webkit-appearance: auto; */
-        display: block;
-    }
-
-    .modal::backdrop {
-        @apply bg-black/60;
-    }
-
-    .fixed-modal {
-        @apply overflow-hidden pr-[17px];
-    }
+.disabled-scrolling {
+    @apply overflow-hidden pr-[17px];
 }

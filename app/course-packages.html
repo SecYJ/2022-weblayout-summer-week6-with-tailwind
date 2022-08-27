@@ -4,10 +4,10 @@ engine: ejs
 layout: ./app/layout.ejs
 ---
 
-<section class="py-10 xl:pb-20 xl:pt-11">
+<main class="py-10 lg:pb-20 lg:pt-11">
     <div class="container">
         <ul
-            class="flex gap-4 overflow-x-auto whitespace-nowrap lg:justify-center"
+            class="flex justify-start gap-4 overflow-x-auto whitespace-nowrap [scrollbar-width:thin] lg:justify-center"
         >
             <li>
                 <a
@@ -19,47 +19,45 @@ layout: ./app/layout.ejs
             <li>
                 <a
                     href="#"
-                    class="hover:gradient-104deg block rounded-lg border border-white py-4 px-8"
+                    class="block rounded-lg border border-white py-4 px-8 transition-colors hover:border-primary hover:bg-primary"
                     >行動應用開發</a
                 >
             </li>
             <li>
                 <a
                     href="#"
-                    class="hover:gradient-104deg block rounded-lg border border-white py-4 px-8"
+                    class="block rounded-lg border border-white py-4 px-8 transition-colors hover:border-primary hover:bg-primary"
                     >資料庫/資料科學</a
                 >
             </li>
             <li>
                 <a
                     href="#"
-                    class="hover:gradient-104deg block rounded-lg border border-white py-4 px-8"
+                    class="block rounded-lg border border-white py-4 px-8 transition-colors hover:border-primary hover:bg-primary"
                     >前端語言</a
                 >
             </li>
             <li>
                 <a
                     href="#"
-                    class="hover:gradient-104deg block rounded-lg border border-white py-4 px-8"
+                    class="block rounded-lg border border-white py-4 px-8 transition-colors hover:border-primary hover:bg-primary"
                     >後端語言</a
                 >
             </li>
             <li>
                 <a
                     href="#"
-                    class="hover:gradient-104deg block rounded-lg border border-white py-4 px-8"
+                    class="block rounded-lg border border-white py-4 px-8 transition-colors hover:border-primary hover:bg-primary"
                     >作業系統與伺服器</a
                 >
             </li>
         </ul>
 
-        <ul
-            class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 xl:mt-12 xl:grid-cols-1 xl:gap-8"
-        >
+        <ul class="mt-6 space-y-6 lg:mt-12 lg:space-y-8">
             <li
-                class="grid min-h-[406px] grid-rows-[auto,1fr] rounded-3xl bg-dark-100 px-6 py-8 xl:grid-cols-[auto,1fr,auto] xl:grid-rows-none xl:p-12"
+                class="grid rounded-3xl bg-dark-100 px-6 py-8 lg:grid-cols-[auto,1fr,auto] lg:gap-12 lg:p-12"
             >
-                <div class="xl:mr-12">
+                <div>
                     <img
                         src="./assets/images/teacher01.jpg"
                         alt="teacher Belinda"
@@ -67,160 +65,45 @@ layout: ./app/layout.ejs
                     />
                     <p class="mt-2 text-center">Belinda</p>
                 </div>
-
-                <div class="grid grid-rows-[auto,1fr] gap-4">
-                    <h2 class="mb-1 text-[1.25rem] font-bold xl:text-[1.5rem]">
-                        基礎前端 - HTML asdf asdf asdf asdfa asdf asdf asdf
-                    </h2>
-                    <div>
-                        <div>
-                            <p class="mb-2 text-primary">前端語言</p>
-                            <p>
-                                帶領無基礎的平民老百姓，從最基礎的 HTML
-                                語法出發，使用最淺顯易懂的語言與生活隨處可見的例子，輕鬆進入網頁架設的世界，完成一個基礎的網頁架設。asdfasdfasdfadsf
-                                sadfasdf asdf asdf
-                            </p>
-                        </div>
-                        <div class="xl:ml-[5.5rem]">
-                            <div
-                                class="mb-4 flex items-end justify-center gap-4 text-center xl:flex-col xl:items-stretch"
-                            >
-                                <span>50分鐘</span>
-                                <strong class="text-[2rem]">NT$1600</strong>
-                            </div>
-                            <div class="grid grid-cols-2 gap-2 xl:grid-cols-1">
-                                <a
-                                    href="./course-introduction.html"
-                                    class="rounded-lg border border-white py-2 px-4 text-center text-[18px] hover:border-transparent hover:bg-primary"
-                                >
-                                    課程介紹
-                                </a>
-                                <button
-                                    type="button"
-                                    class="gradient-107deg rounded-lg border border-transparent py-2 px-4 text-[18px]"
-                                >
-                                    立即預約
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- <div
-                    class="mb-6 grid grid-rows-[auto,1fr] content-between gap-2 md:items-end xl:mb-0"
-                >
-                   
-                   
-                </div> -->
-                </div>
-            </li>
-            <li
-                class="grid min-h-[406px] grid-rows-[auto,1fr] rounded-3xl bg-dark-100 px-6 py-8 xl:grid-cols-[auto,1fr,auto] xl:grid-rows-none xl:p-12"
-            >
-                <div class="xl:mr-12">
-                    <img
-                        src="./assets/images/teacher01.jpg"
-                        alt="teacher Belinda"
-                        class="mx-auto h-[100px] w-[100px] rounded-full"
-                    />
-                    <p class="mt-2 text-center">Belinda</p>
-                </div>
-
-                <div class="grid grid-rows-[1fr,auto] gap-4">
-                    <h2 class="mb-1 text-[1.25rem] font-bold xl:text-[1.5rem]">
-                        基礎前端 -
-                    </h2>
-                    <div>
-                        <div>
-                            <p class="mb-2 text-primary">前端語言</p>
-                            <p>
-                                帶領無基礎的平民老百姓，從最基礎的 HTML
-                                語法出發，使用最淺顯易懂的語言與生活隨處可見的例子，輕鬆進入網頁架設的世界，完成一個基礎的網頁架設。
-                            </p>
-                        </div>
-                        <div class="xl:ml-[5.5rem]">
-                            <div
-                                class="mb-4 flex items-end justify-center gap-4 text-center xl:flex-col xl:items-stretch"
-                            >
-                                <span>50分鐘</span>
-                                <strong class="text-[2rem]">NT$1600</strong>
-                            </div>
-                            <div class="grid grid-cols-2 gap-2 xl:grid-cols-1">
-                                <a
-                                    href="./course-introduction.html"
-                                    class="rounded-lg border border-white py-2 px-4 text-center text-[18px] hover:border-transparent hover:bg-primary"
-                                >
-                                    課程介紹
-                                </a>
-                                <button
-                                    type="button"
-                                    class="gradient-107deg rounded-lg border border-transparent py-2 px-4 text-[18px]"
-                                >
-                                    立即預約
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- <div
-                    class="mb-6 grid grid-rows-[auto,1fr] content-between gap-2 md:items-end xl:mb-0"
-                >
-                   
-                   
-                </div> -->
-                </div>
-            </li>
-            <!-- <li
-                class="grid grid-rows-[auto,1fr,auto] rounded-3xl bg-dark-100 px-6 py-8 xl:grid-cols-[auto,1fr,auto] xl:grid-rows-none xl:p-12"
-            >
-                <div class="xl:mr-12">
-                    <img
-                        src="./assets/images/teacher01.jpg"
-                        alt="teacher Belinda"
-                        class="mx-auto h-[100px] w-[100px] rounded-full"
-                    />
-                    <p class="mt-2 text-center">Belinda</p>
-                </div>
-                <div
-                    class="mb-6 grid grid-rows-[auto,1fr] content-between gap-2 md:items-end xl:mb-0"
-                >
-                    <h2 class="mb-1 text-[1.25rem] font-bold xl:text-[1.5rem]">
-                        基礎前端 - HTML asdf asdf asdf asdfa asdf asdf asdf
+                <div class="mb-6 lg:mb-0">
+                    <h2 class="mb-1 text-[1.25rem] font-bold lg:text-[1.5rem]">
+                        基礎前端 - HTML
                     </h2>
                     <div>
                         <p class="mb-2 text-primary">前端語言</p>
                         <p>
-                            帶領無基礎的平民老百姓，從最基礎的 HTML
-                            語法出發，使用最淺顯易懂的語言與生活隨處可見的例子，輕鬆進入網頁架設的世界，完成一個基礎的網頁架設。
+                            帶領無基礎的平民老百姓，從最基礎的
+                            HTML語法出發，使用最淺顯易懂的語言<br />與生活隨處可見的例子，輕鬆進入網頁架設的世界，完成一個基礎的網頁架設。
                         </p>
                     </div>
                 </div>
-                <div class="xl:ml-[5.5rem]">
+                <div>
                     <div
-                        class="mb-4 flex items-end justify-center gap-4 text-center xl:flex-col xl:items-stretch"
+                        class="mb-4 flex items-end justify-center gap-2 text-center lg:flex-col lg:items-stretch"
                     >
-                        <span>50分鐘</span>
+                        <span class="mb-1.5">50分鐘</span>
                         <strong class="text-[2rem]">NT$1600</strong>
                     </div>
-                    <div class="grid grid-cols-2 gap-2 xl:grid-cols-1">
+                    <div class="flex justify-center gap-2">
                         <a
                             href="./course-introduction.html"
-                            class="rounded-lg border border-white py-2 px-4 text-center text-[18px] hover:border-transparent hover:bg-primary"
+                            class="rounded-lg border border-white py-2 px-4 text-center shadow-lg shadow-transparent transition-all hover:border-transparent hover:bg-primary hover:shadow-primary"
                         >
                             課程介紹
                         </a>
-                        <button
-                            type="button"
-                            class="gradient-107deg rounded-lg border border-transparent py-2 px-4 text-[18px]"
+                        <a
+                            href="./checkout-step-1.html"
+                            class="gradient-107deg rounded-lg py-2 px-4 shadow-lg shadow-transparent transition-shadow hover:shadow-primary"
                         >
                             立即預約
-                        </button>
+                        </a>
                     </div>
                 </div>
-            </li> -->
-            <!-- <li
-                class="grid grid-rows-[auto,1fr,auto] rounded-3xl bg-dark-100 px-6 py-8 lg:grid-cols-[auto,1fr,auto] lg:grid-rows-none lg:p-12 xl:content-end"
+            </li>
+            <li
+                class="grid rounded-3xl bg-dark-100 px-6 py-8 lg:grid-cols-[auto,1fr,auto] lg:gap-12 lg:p-12"
             >
-                <div class="lg:mr-12">
+                <div>
                     <img
                         src="./assets/images/teacher02.jpg"
                         alt="teacher Guava"
@@ -228,46 +111,44 @@ layout: ./app/layout.ejs
                     />
                     <p class="mt-2 text-center">Guava</p>
                 </div>
-                <div
-                    class="mb-6 grid grid-rows-[1fr,auto] content-between md:items-end lg:mb-0"
-                >
-                    <h2 class="mb-1 text-[1.25rem] font-bold xl:text-[1.5rem]">
+                <div class="mb-6 lg:mb-0">
+                    <h2 class="mb-1 text-[1.25rem] font-bold lg:text-[1.5rem]">
                         2022 Python 全攻略｜從入門到實務
                     </h2>
                     <div>
                         <p class="mb-2 text-primary">前端語言</p>
                         <p>
-                            Python支援多種程式設計範式，包括函數式、指令式、反射式、結構化和物件導向程式設計，它擁有動態型別系統和垃圾回收功能，能夠自動管理記憶體使用，本堂課帶你無痛入門，開發簡單的應用！
+                            Python支援多種程式設計範式，包括函數式、指令式、反射式、結構化和物件導<br />向程式設計，它擁有動態型別系統和垃圾回收功能，能夠自動管理記憶體使用，本<br />堂課帶你無痛入門，開發簡單的應用！
                         </p>
                     </div>
                 </div>
-                <div class="xl:ml-[5.5rem]">
+                <div>
                     <div
-                        class="mb-4 flex items-end justify-center gap-4 text-center xl:flex-col xl:items-stretch"
+                        class="mb-4 flex items-end justify-center gap-2 text-center lg:flex-col lg:items-stretch"
                     >
-                        <span>50分鐘</span>
+                        <span class="mb-1.5">50分鐘</span>
                         <strong class="text-[2rem]">NT$1600</strong>
                     </div>
-                    <div class="grid grid-cols-2 gap-2 xl:grid-cols-1">
-                        <button
-                            type="button"
-                            class="rounded-lg border border-white py-2 px-4 text-[18px] hover:border-transparent hover:bg-primary"
+                    <div class="flex justify-center gap-2">
+                        <a
+                            href="./course-introduction.html"
+                            class="rounded-lg border border-white py-2 px-4 text-center shadow-lg shadow-transparent transition-all hover:border-transparent hover:bg-primary hover:shadow-primary"
                         >
                             課程介紹
-                        </button>
-                        <button
-                            type="button"
-                            class="gradient-107deg rounded-lg border border-transparent py-2 px-4 text-[18px]"
+                        </a>
+                        <a
+                            href="./checkout-step-1.html"
+                            class="gradient-107deg rounded-lg py-2 px-4 shadow-lg shadow-transparent transition-shadow hover:shadow-primary"
                         >
                             立即預約
-                        </button>
+                        </a>
                     </div>
                 </div>
-            </li> -->
-            <!-- <li
-                class="grid grid-rows-[auto,1fr,auto] rounded-3xl bg-dark-100 px-6 py-8 lg:grid-cols-[auto,1fr,auto] lg:grid-rows-none lg:p-12"
+            </li>
+            <li
+                class="grid rounded-3xl bg-dark-100 px-6 py-8 lg:grid-cols-[auto,1fr,auto] lg:gap-12 lg:p-12"
             >
-                <div class="lg:mr-12">
+                <div>
                     <img
                         src="./assets/images/teacher03.jpg"
                         alt="teacher Joe"
@@ -277,44 +158,46 @@ layout: ./app/layout.ejs
                 </div>
                 <div class="mb-6 lg:mb-0">
                     <h2 class="mb-1 text-[1.25rem] font-bold lg:text-[1.5rem]">
-                        基礎前端 - HTML
+                        活用 Line Bot ｜APP 開發到上架完整實戰攻略
                     </h2>
-                    <p class="mb-2 text-primary">前端語言</p>
-                    <p>
-                        Line Bot
-                        可用於實用的目的，如客戶服務或資訊獲取，有些聊天機器人會搭載自然語言處理系統，但大多簡單的系統只會擷取輸入的關鍵字，再從語料庫中找尋最合適的應答句，本堂課會帶你了解
-                        Line Bot 如何結合其他工具的應用。
-                    </p>
+                    <div>
+                        <p class="mb-2 text-primary">前端語言</p>
+                        <p>
+                            Line Bot
+                            可用於實用的目的，如客戶服務或資訊獲取，有些聊天機器人會搭載自<br />然語言處理系統，但大多簡單的系統只會擷取輸入的關鍵字，再從語料庫中找尋最<br />合適的應答句，本堂課會帶你了解
+                            Line Bot 如何結合其他工具的應用。
+                        </p>
+                    </div>
                 </div>
-                <div class="lg:ml-[5.5rem]">
+                <div>
                     <div
-                        class="mb-4 flex items-end justify-center gap-4 text-center lg:flex-col lg:items-stretch"
+                        class="mb-4 flex items-end justify-center gap-2 text-center lg:flex-col lg:items-stretch"
                     >
-                        <span>50分鐘</span>
+                        <span class="mb-1.5">50分鐘</span>
                         <strong class="text-[2rem]">NT$1600</strong>
                     </div>
-                    <div class="grid grid-cols-2 gap-2 lg:grid-cols-1">
-                        <button
-                            type="button"
-                            class="rounded-lg border border-white py-2 px-4 text-[18px] hover:border-transparent hover:bg-primary"
+                    <div class="flex justify-center gap-2">
+                        <a
+                            href="./course-introduction.html"
+                            class="rounded-lg border border-white py-2 px-4 text-center shadow shadow-transparent transition-all hover:border-transparent hover:bg-primary hover:shadow-primary"
                         >
                             課程介紹
-                        </button>
-                        <button
-                            type="button"
-                            class="gradient-107deg rounded-lg border border-transparent py-2 px-4 text-[18px]"
+                        </a>
+                        <a
+                            href="./checkout-step-1.html"
+                            class="gradient-107deg rounded-lg py-2 px-4 shadow-lg shadow-transparent transition-shadow hover:shadow-primary"
                         >
                             立即預約
-                        </button>
+                        </a>
                     </div>
                 </div>
             </li>
             <li
-                class="grid grid-rows-[auto,1fr,auto] rounded-3xl bg-dark-100 px-6 py-8 lg:grid-cols-[auto,1fr,auto] lg:grid-rows-none lg:p-12"
+                class="grid rounded-3xl bg-dark-100 px-6 py-8 lg:grid-cols-[auto,1fr,auto] lg:gap-12 lg:p-12"
             >
-                <div class="lg:mr-12">
+                <div>
                     <img
-                        src="./assets/images/teacher01.jpg"
+                        src="./assets/images/teacher04.jpg"
                         alt="teacher Lina"
                         class="mx-auto h-[100px] w-[100px] rounded-full"
                     />
@@ -324,34 +207,36 @@ layout: ./app/layout.ejs
                     <h2 class="mb-1 text-[1.25rem] font-bold lg:text-[1.5rem]">
                         Linux 零基礎七天入門｜入門到實務
                     </h2>
-                    <p class="mb-2 text-primary">前端語言</p>
-                    <p>
-                        Linux是一種自由和開放原始碼的類UNIX作業系統，作業系統中包含了許多使用者圖形介面和其他實用工具。課程會一步一步帶著你走，讓你能夠從頭開始學習程式語言的基本語法
-                    </p>
+                    <div>
+                        <p class="mb-2 text-primary">前端語言</p>
+                        <p>
+                            Linux是一種自由和開放原始碼的類UNIX作業系統，作業系統中包含了許多使用者<br />圖形介面和其他實用工具。課程會一步一步帶著你走，讓你能夠從頭開始學習程式<br />語言的基本語法
+                        </p>
+                    </div>
                 </div>
-                <div class="lg:ml-[5.5rem]">
+                <div>
                     <div
-                        class="mb-4 flex items-end justify-center gap-4 text-center lg:flex-col lg:items-stretch"
+                        class="mb-4 flex items-end justify-center gap-2 text-center lg:flex-col lg:items-stretch"
                     >
-                        <span>50分鐘</span>
+                        <span class="mb-1.5">50分鐘</span>
                         <strong class="text-[2rem]">NT$1600</strong>
                     </div>
-                    <div class="grid grid-cols-2 gap-2 lg:grid-cols-1">
-                        <button
-                            type="button"
-                            class="rounded-lg border border-white py-2 px-4 text-[18px] hover:border-transparent hover:bg-primary"
+                    <div class="flex justify-center gap-2">
+                        <a
+                            href="./course-introduction.html"
+                            class="rounded-lg border border-white py-2 px-4 text-center shadow-lg shadow-transparent transition-all hover:border-transparent hover:bg-primary hover:shadow-primary"
                         >
                             課程介紹
-                        </button>
-                        <button
-                            type="button"
-                            class="gradient-107deg rounded-lg border border-transparent py-2 px-4 text-[18px]"
+                        </a>
+                        <a
+                            href="./checkout-step-1.html"
+                            class="gradient-107deg rounded-lg py-2 px-4 shadow-lg shadow-transparent transition-shadow hover:shadow-primary"
                         >
                             立即預約
-                        </button>
+                        </a>
                     </div>
                 </div>
-            </li> -->
+            </li>
         </ul>
     </div>
-</section>
+</main>
