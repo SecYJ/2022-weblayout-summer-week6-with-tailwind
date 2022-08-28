@@ -165,46 +165,76 @@ current: index
             <span class="block md:inline-block">都在這裡</span>
             <span class="mx-auto mt-4 h-[3px] w-[50px] bg-primary"></span>
         </h3>
-        <ul
-            class="mt-[26px] flex gap-2 overflow-x-auto px-6 [scrollbar-width:thin] lg:mt-12 lg:justify-center"
-        >
-            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
-                JavaScript
-            </li>
-            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
-                HTML/CSS
-            </li>
-            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
-                SQL
-            </li>
-            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
-                Java
-            </li>
-            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
-                SQL
-            </li>
-            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
-                Bash/Shell
-            </li>
-            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
-                Python
-            </li>
-            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
-                Python
-            </li>
-            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
-                PHP
-            </li>
-            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
-                C++
-            </li>
-            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
-                11
-            </li>
-            <li class="rounded-lg border border-white p-4 lg:px-8 lg:py-6">
-                12
-            </li>
-        </ul>
+        <div class="mt-4 px-6 lg:mt-12">
+            <div class="swiper" id="learning-skill-carousel">
+                <ul class="swiper-wrapper">
+                    <li class="swiper">
+                        <a
+                            href="#"
+                            class="block rounded-lg border border-white p-4 shadow-lg shadow-transparent transition-all hover:border-primary hover:bg-primary hover:shadow-primary lg:px-8 lg:py-6"
+                        >
+                            JavaScript</a
+                        >
+                    </li>
+                    <li class="swiper-slide">
+                        <a
+                            href="#"
+                            class="block rounded-lg border border-white p-4 shadow-lg shadow-transparent transition-all hover:border-primary hover:bg-primary hover:shadow-primary lg:px-8 lg:py-6"
+                        >
+                            HTML/CSS</a
+                        >
+                    </li>
+                    <li class="swiper-slide">
+                        <a
+                            href="#"
+                            class="block rounded-lg border border-white p-4 shadow-lg shadow-transparent transition-all hover:border-primary hover:bg-primary hover:shadow-primary lg:px-8 lg:py-6"
+                        >
+                            SQL</a
+                        >
+                    </li>
+                    <li class="swiper-slide">
+                        <a
+                            href="#"
+                            class="block rounded-lg border border-white p-4 shadow-lg shadow-transparent transition-all hover:border-primary hover:bg-primary hover:shadow-primary lg:px-8 lg:py-6"
+                        >
+                            Java</a
+                        >
+                    </li>
+                    <li class="swiper-slide">
+                        <a
+                            href="#"
+                            class="block rounded-lg border border-white p-4 shadow-lg shadow-transparent transition-all hover:border-primary hover:bg-primary hover:shadow-primary lg:px-8 lg:py-6"
+                        >
+                            Bash/Shell</a
+                        >
+                    </li>
+                    <li class="swiper-slide">
+                        <a
+                            href="#"
+                            class="block rounded-lg border border-white p-4 shadow-lg shadow-transparent transition-all hover:border-primary hover:bg-primary hover:shadow-primary lg:px-8 lg:py-6"
+                        >
+                            Python</a
+                        >
+                    </li>
+                    <li class="swiper-slide">
+                        <a
+                            href="#"
+                            class="block rounded-lg border border-white p-4 shadow-lg shadow-transparent transition-all hover:border-primary hover:bg-primary hover:shadow-primary lg:px-8 lg:py-6"
+                        >
+                            PHP</a
+                        >
+                    </li>
+                    <li class="swiper-slide">
+                        <a
+                            href="#"
+                            class="block rounded-lg border border-white p-4 shadow-lg shadow-transparent transition-all hover:border-primary hover:bg-primary hover:shadow-primary lg:px-8 lg:py-6"
+                        >
+                            C++</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </div>
     </section>
 
     <section class="bg-black py-10 lg:py-20">
@@ -538,7 +568,7 @@ current: index
             </h3>
             <div class="mt-6 lg:mt-12 lg:flex lg:justify-center">
                 <div class="lg:w-8/12">
-                    <div class="swiper">
+                    <div class="swiper" id="feedback-carousel">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div

@@ -43,7 +43,7 @@ window.addEventListener("DOMContentLoaded", () => {
     mobileLoginBtn.addEventListener("click", showModal);
     loginBtn.addEventListener("click", showModal);
 
-    new Swiper(".swiper", {
+    new Swiper("#feedback-carousel", {
         effect: "fade",
         pagination: {
             el: ".swiper-pagination",
@@ -55,6 +55,32 @@ window.addEventListener("DOMContentLoaded", () => {
             nextEl: ".carousel-next-btn",
             prevEl: ".carousel-prev-btn",
         },
+    });
+
+    new Swiper("#learning-skill-carousel", {
+        // slidesPerView: 1,
+        slidesPerView: 10,
+        // breakpoints: {
+        //     768: {
+        //         slidesPerView: 6,
+        //     },
+        //     1024: {
+        //         slidesPerView: 10,
+        //     },
+        // },
+        // spaceBetween: 30,
+        loop: true,
+        spaceBetween: 16,
+        autoplay: {
+            disableOnInteraction: false,
+            delay: 2000,
+        },
+        // loop: true,
+        // loopedSlides: 10,
+        // slidesPerColumn: 6,
+        // centeredSlides: true,
+        // cssMode: true,
+        // longSwipes: false,
     });
 
     const reserveDate = document.querySelector("#reserve-date");
